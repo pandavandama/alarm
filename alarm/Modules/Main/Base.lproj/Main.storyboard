@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,84 +11,44 @@
         <!--Будильник-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="alarm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="AlarmViewController" customModule="alarm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5FZ-Hv-d8I">
-                                <rect key="frame" x="0.0" y="88" width="414" height="748"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="separatorColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="MTE-7t-QFB">
-                                <rect key="frame" x="0.0" y="836" width="414" height="60"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COW-WA-y6O">
-                                        <rect key="frame" x="0.0" y="0.0" width="103.5" height="60"/>
-                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" imagePlacement="top" title="Мировые часы">
-                                            <imageReference key="image" image="globe" catalog="system" symbolScale="large"/>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="default"/>
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="8"/>
-                                        </buttonConfiguration>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tUO-98-Uwc">
-                                        <rect key="frame" x="103.5" y="0.0" width="103.5" height="60"/>
-                                        <color key="tintColor" systemColor="systemOrangeColor"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" imagePlacement="top" title="Будильник">
-                                            <imageReference key="image" image="alarm.fill" catalog="system" symbolScale="large"/>
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="8"/>
-                                        </buttonConfiguration>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wqV-DV-9kg">
-                                        <rect key="frame" x="207" y="0.0" width="103.5" height="60"/>
-                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" imagePlacement="top" title="Секундомер">
-                                            <imageReference key="image" image="stopwatch.fill" catalog="system" symbolScale="large"/>
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="8"/>
-                                        </buttonConfiguration>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OXp-L4-hG2">
-                                        <rect key="frame" x="310.5" y="0.0" width="103.5" height="60"/>
-                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="timer" catalog="system" imagePlacement="top" title="Таймер">
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="8"/>
-                                        </buttonConfiguration>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="INg-KF-6Gl"/>
-                                </constraints>
-                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="5FZ-Hv-d8I" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="2XP-fP-Zzb"/>
-                            <constraint firstItem="MTE-7t-QFB" firstAttribute="top" secondItem="5FZ-Hv-d8I" secondAttribute="bottom" id="3hi-Wq-YfC"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MTE-7t-QFB" secondAttribute="trailing" id="5f7-xX-par"/>
-                            <constraint firstItem="MTE-7t-QFB" firstAttribute="top" secondItem="5FZ-Hv-d8I" secondAttribute="bottom" id="7sx-E5-9pL"/>
-                            <constraint firstItem="MTE-7t-QFB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9X5-j2-O1m"/>
-                            <constraint firstItem="5FZ-Hv-d8I" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QdP-zY-ZgD"/>
-                            <constraint firstAttribute="bottom" secondItem="MTE-7t-QFB" secondAttribute="bottom" id="fS2-ZT-AQD"/>
-                            <constraint firstItem="5FZ-Hv-d8I" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="fb5-3S-6E3"/>
+                            <constraint firstItem="5FZ-Hv-d8I" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TCk-sa-neX"/>
+                            <constraint firstItem="5FZ-Hv-d8I" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hna-A2-Rjs"/>
+                            <constraint firstItem="5FZ-Hv-d8I" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="kbh-q4-NJz"/>
+                            <constraint firstAttribute="bottom" secondItem="5FZ-Hv-d8I" secondAttribute="bottom" id="uO6-hu-v1o"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Будильник" id="F2W-9s-ubY">
                         <barButtonItem key="leftBarButtonItem" title="Править" id="0r7-0Z-BZD">
                             <color key="tintColor" systemColor="systemOrangeColor"/>
+                            <connections>
+                                <action selector="editAlarmButtonClick:" destination="BYZ-38-t0r" id="3hh-M8-3gm"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" width="10" id="M3x-mU-73A">
                             <color key="tintColor" systemColor="systemOrangeColor"/>
+                            <connections>
+                                <action selector="addAlarmButtonClick:" destination="BYZ-38-t0r" id="f8L-7C-9p9"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="5FZ-Hv-d8I" id="jtR-ji-ER7"/>
+                        <outlet property="editTabButton" destination="0r7-0Z-BZD" id="kc6-xh-jEP"/>
+                        <outlet property="plusTabButton" destination="M3x-mU-73A" id="b2R-ta-yj4"/>
+                        <outlet property="tableView" destination="5FZ-Hv-d8I" id="nWs-6a-dcP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -131,18 +90,33 @@
         <!--Мировые часы-->
         <scene sceneID="8yN-nc-Syi">
             <objects>
-                <viewController id="HxU-jD-Ehp" sceneMemberID="viewController">
+                <viewController id="HxU-jD-Ehp" customClass="WorldClockViewController" customModule="alarm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C8P-JI-9pv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="1CG-6c-QOe">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="k4B-6v-kQi"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1CG-6c-QOe" firstAttribute="leading" secondItem="k4B-6v-kQi" secondAttribute="leading" id="Bg5-YA-SaN"/>
+                            <constraint firstItem="k4B-6v-kQi" firstAttribute="trailing" secondItem="1CG-6c-QOe" secondAttribute="trailing" id="XwJ-4B-zLE"/>
+                            <constraint firstItem="1CG-6c-QOe" firstAttribute="top" secondItem="k4B-6v-kQi" secondAttribute="top" id="av5-Jb-dOK"/>
+                            <constraint firstItem="k4B-6v-kQi" firstAttribute="bottom" secondItem="1CG-6c-QOe" secondAttribute="bottom" id="tTO-eP-NGE"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Мировые часы" id="DPd-9d-GEn"/>
+                    <connections>
+                        <outlet property="tableView" destination="1CG-6c-QOe" id="u5D-IX-YyI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hHk-Zz-mmP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1913" y="-640"/>
+            <point key="canvasLocation" x="1951" y="-640"/>
         </scene>
         <!--Будильник-->
         <scene sceneID="azf-fc-9h6">
@@ -161,7 +135,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="azA-xq-c7d"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="fJg-RD-MDE"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VBA-2i-OE6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -176,7 +150,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uSv-0H-vvR">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" systemColor="systemOrangeColor"/>
                         <color key="selectedImageTintColor" systemColor="systemOrangeColor"/>
                         <tabBarAppearance key="standardAppearance">

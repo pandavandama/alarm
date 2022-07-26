@@ -7,11 +7,12 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-    
+    @IBOutlet weak var plusTabButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var editTabButton: UIBarButtonItem!
     
     var dataList: [SpecificAlarm] = []
     var labelBigTitle: UILabel?
@@ -95,6 +96,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func deleteCellFromTable(indexPath: IndexPath){
         print("Delete Cell at ", indexPath)
+        tableView.cellForRow(at: indexPath)?.removeFromSuperview()
+        dataList.remove(at: indexPath.row)
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -118,7 +122,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(-scrollView.contentOffset.y)
         labelBigTitle?.font = .boldSystemFont(ofSize: 30+(-scrollView.contentOffset.y/50))
     }
     func makeHeaderTable(title: String) -> UIView{
@@ -133,6 +136,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         header.addSubview(labelBigTitle!)
         header.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: labelBigTitle!.frame.height)
         return header
+    }
+    
+    
+    @IBAction func addAlarmButtonClick(_ sender: UIBarButtonItem) {
+        addAlarm()
+    }
+    
+    @IBAction func editAlarmButtonClick(_ sender: UIBarButtonItem) {
+        editAlarm()
+    }
+    
+    
+    func addAlarm(){
+        print("Add alarm")
+    }
+    func editAlarm(){
+        print("Edit alarm")
     }
     
 }

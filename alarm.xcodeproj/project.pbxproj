@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		CB5D4353288F14E800276A4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D4352288F14E800276A4F /* AppDelegate.swift */; };
 		CB5D4355288F14E800276A4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D4354288F14E800276A4F /* SceneDelegate.swift */; };
-		CB5D4357288F14E800276A4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D4356288F14E800276A4F /* ViewController.swift */; };
+		CB5D4357288F14E800276A4F /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D4356288F14E800276A4F /* AlarmViewController.swift */; };
 		CB5D435A288F14E800276A4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB5D4358288F14E800276A4F /* Main.storyboard */; };
 		CB5D435D288F14E800276A4F /* alarm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB5D435B288F14E800276A4F /* alarm.xcdatamodeld */; };
 		CB5D435F288F14E900276A4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB5D435E288F14E900276A4F /* Assets.xcassets */; };
@@ -17,13 +17,17 @@
 		CB5D436F288F178600276A4F /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D436D288F178600276A4F /* AlarmTableViewCell.swift */; };
 		CB5D4370288F178600276A4F /* AlarmTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB5D436E288F178600276A4F /* AlarmTableViewCell.xib */; };
 		CB5D4372288F204500276A4F /* AlarmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D4371288F204500276A4F /* AlarmModel.swift */; };
+		CBB727252890383700621ED0 /* WorldClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB727242890383700621ED0 /* WorldClockViewController.swift */; };
+		CBB727272890389400621ED0 /* WorldClockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB727262890389400621ED0 /* WorldClockModel.swift */; };
+		CBB7272A2890470D00621ED0 /* WorldClockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB727282890470D00621ED0 /* WorldClockTableViewCell.swift */; };
+		CBB7272B2890470D00621ED0 /* WorldClockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBB727292890470D00621ED0 /* WorldClockTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CB5D434F288F14E800276A4F /* alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = alarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB5D4352288F14E800276A4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB5D4354288F14E800276A4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CB5D4356288F14E800276A4F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CB5D4356288F14E800276A4F /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 		CB5D4359288F14E800276A4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CB5D435C288F14E800276A4F /* alarm.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = alarm.xcdatamodel; sourceTree = "<group>"; };
 		CB5D435E288F14E900276A4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -32,6 +36,10 @@
 		CB5D436D288F178600276A4F /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
 		CB5D436E288F178600276A4F /* AlarmTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmTableViewCell.xib; sourceTree = "<group>"; };
 		CB5D4371288F204500276A4F /* AlarmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmModel.swift; sourceTree = "<group>"; };
+		CBB727242890383700621ED0 /* WorldClockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClockViewController.swift; sourceTree = "<group>"; };
+		CBB727262890389400621ED0 /* WorldClockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClockModel.swift; sourceTree = "<group>"; };
+		CBB727282890470D00621ED0 /* WorldClockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClockTableViewCell.swift; sourceTree = "<group>"; };
+		CBB727292890470D00621ED0 /* WorldClockTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorldClockTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +94,7 @@
 		CB5D436A288F15C900276A4F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				CBB727232890381100621ED0 /* WorldClock */,
 				CB5D436B288F15DB00276A4F /* Main */,
 			);
 			path = Modules;
@@ -95,7 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				CB5D436C288F175A00276A4F /* AlarmCell */,
-				CB5D4356288F14E800276A4F /* ViewController.swift */,
+				CB5D4356288F14E800276A4F /* AlarmViewController.swift */,
 				CB5D4358288F14E800276A4F /* Main.storyboard */,
 				CB5D4371288F204500276A4F /* AlarmModel.swift */,
 			);
@@ -109,6 +118,17 @@
 				CB5D436E288F178600276A4F /* AlarmTableViewCell.xib */,
 			);
 			path = AlarmCell;
+			sourceTree = "<group>";
+		};
+		CBB727232890381100621ED0 /* WorldClock */ = {
+			isa = PBXGroup;
+			children = (
+				CBB727242890383700621ED0 /* WorldClockViewController.swift */,
+				CBB727262890389400621ED0 /* WorldClockModel.swift */,
+				CBB727282890470D00621ED0 /* WorldClockTableViewCell.swift */,
+				CBB727292890470D00621ED0 /* WorldClockTableViewCell.xib */,
+			);
+			path = WorldClock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,6 +193,7 @@
 				CB5D435F288F14E900276A4F /* Assets.xcassets in Resources */,
 				CB5D435A288F14E800276A4F /* Main.storyboard in Resources */,
 				CB5D4370288F178600276A4F /* AlarmTableViewCell.xib in Resources */,
+				CBB7272B2890470D00621ED0 /* WorldClockTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,9 +205,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB5D436F288F178600276A4F /* AlarmTableViewCell.swift in Sources */,
-				CB5D4357288F14E800276A4F /* ViewController.swift in Sources */,
+				CBB727252890383700621ED0 /* WorldClockViewController.swift in Sources */,
+				CB5D4357288F14E800276A4F /* AlarmViewController.swift in Sources */,
 				CB5D4353288F14E800276A4F /* AppDelegate.swift in Sources */,
 				CB5D4355288F14E800276A4F /* SceneDelegate.swift in Sources */,
+				CBB727272890389400621ED0 /* WorldClockModel.swift in Sources */,
+				CBB7272A2890470D00621ED0 /* WorldClockTableViewCell.swift in Sources */,
 				CB5D435D288F14E800276A4F /* alarm.xcdatamodeld in Sources */,
 				CB5D4372288F204500276A4F /* AlarmModel.swift in Sources */,
 			);

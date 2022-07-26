@@ -9,47 +9,47 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="152" id="KGk-i7-Jjw" customClass="AlarmTableViewCell" customModule="alarm" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="317" height="152"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="87" id="KGk-i7-Jjw" customClass="AlarmTableViewCell" customModule="alarm" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="317" height="87"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="317" height="152"/>
+                <rect key="frame" x="0.0" y="0.0" width="317" height="87"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RCV-64-ZWM">
-                        <rect key="frame" x="0.0" y="0.0" width="317" height="90"/>
+                        <rect key="frame" x="0.0" y="0.0" width="317" height="60"/>
                         <subviews>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LN0-85-HfD">
-                                <rect key="frame" x="248" y="29.5" width="51" height="31"/>
+                                <rect key="frame" x="248" y="14.5" width="51" height="31"/>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MD3-ZC-5Cv">
-                                <rect key="frame" x="20" y="18" width="117" height="54"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="45"/>
+                                <rect key="frame" x="0.0" y="-0.5" width="130" height="61"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="51"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="MD3-ZC-5Cv" firstAttribute="leading" secondItem="RCV-64-ZWM" secondAttribute="leading" constant="20" id="H7K-DZ-3cM"/>
+                            <constraint firstItem="MD3-ZC-5Cv" firstAttribute="leading" secondItem="RCV-64-ZWM" secondAttribute="leading" id="H7K-DZ-3cM"/>
                             <constraint firstItem="LN0-85-HfD" firstAttribute="centerY" secondItem="RCV-64-ZWM" secondAttribute="centerY" id="LNz-dV-dlH"/>
                             <constraint firstItem="MD3-ZC-5Cv" firstAttribute="centerY" secondItem="RCV-64-ZWM" secondAttribute="centerY" id="Wnu-UH-kxh"/>
-                            <constraint firstAttribute="height" constant="90" id="lEf-H8-kk2"/>
+                            <constraint firstAttribute="height" constant="60" id="lEf-H8-kk2"/>
                             <constraint firstAttribute="trailing" secondItem="LN0-85-HfD" secondAttribute="trailing" constant="20" id="qgn-vp-LYU"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Будильник" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvT-TF-jcx">
-                        <rect key="frame" x="16" y="95" width="285" height="16"/>
+                        <rect key="frame" x="0.0" y="60" width="301" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="VvT-TF-jcx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="5FI-ts-qJs"/>
+                    <constraint firstItem="VvT-TF-jcx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="5FI-ts-qJs"/>
                     <constraint firstItem="RCV-64-ZWM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="LHY-Ov-HEa"/>
-                    <constraint firstItem="VvT-TF-jcx" firstAttribute="top" secondItem="RCV-64-ZWM" secondAttribute="bottom" constant="5" id="Prx-qa-anM"/>
-                    <constraint firstAttribute="bottom" secondItem="VvT-TF-jcx" secondAttribute="bottom" constant="41" id="TIK-6Y-ZIy"/>
+                    <constraint firstItem="VvT-TF-jcx" firstAttribute="top" secondItem="RCV-64-ZWM" secondAttribute="bottom" id="Prx-qa-anM"/>
+                    <constraint firstAttribute="bottom" secondItem="VvT-TF-jcx" secondAttribute="bottom" constant="10" id="TIK-6Y-ZIy"/>
                     <constraint firstItem="VvT-TF-jcx" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailing" constant="-16" id="eFq-wq-npD"/>
                     <constraint firstItem="RCV-64-ZWM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ffE-1o-GPB"/>
                     <constraint firstAttribute="trailing" secondItem="RCV-64-ZWM" secondAttribute="trailing" id="msc-NT-hjc"/>
@@ -62,7 +62,7 @@
                 <outlet property="switchAlarm" destination="LN0-85-HfD" id="K2H-ec-SI4"/>
                 <outlet property="timeLabel" destination="MD3-ZC-5Cv" id="rWW-HE-anu"/>
             </connections>
-            <point key="canvasLocation" x="147.10144927536234" y="102.45535714285714"/>
+            <point key="canvasLocation" x="147.10144927536234" y="80.022321428571431"/>
         </tableViewCell>
     </objects>
 </document>
