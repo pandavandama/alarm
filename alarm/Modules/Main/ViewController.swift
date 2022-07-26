@@ -35,7 +35,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let cell = tableView.dequeueReusableCell(withIdentifier: AlarmTableViewCell.id, for: indexPath) as! AlarmTableViewCell
         
-        
+        cell.selectionStyle = .none
         print(indexPath)
         if indexPath.row == 0{
             cell.bindView(data: dataList[indexPath.section])
@@ -43,22 +43,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.bindView(data: dataList[indexPath.row])
         }
         
-        
-        
-        
         return cell
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         35.0
     }
-    //    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    //        return "Section \(section)"
-    //    }
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         var title = ""
-        
-        
         
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 22)
@@ -70,7 +63,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if section==0{
             title="Сон | пробуждение"
             let image = UIImage(systemName: "bed.double.fill",withConfiguration: UIImage.SymbolConfiguration(pointSize: 2, weight: .bold, scale: .small))?.withTintColor(.white, renderingMode: .alwaysOriginal)
-             
 
             label.addTextWithImage(text: title, image: image!, imageBehindText: false, keepPreviousText: false)
         }else{
@@ -79,10 +71,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         }
         
-
-
-//        label.attributedText = completeText
-        //        label.addSubview()
         let headerView = UIView()
         headerView.backgroundColor = UIColor.clear
         headerView.addSubview(label)
@@ -98,10 +86,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         print(dataList)
     }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if indexPath.section == 0{
+                    return false
+                }
+        return true
+    }
     
+    func deleteCellFromTable(indexPath: IndexPath){
+        print("Delete Cell at ", indexPath)
+    }
     
-    
-    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .normal, title: "Delete"){ [weak self] (action,view,handler) in
+            self!.deleteCellFromTable(indexPath: indexPath)
+            
+        }
+        delete.backgroundColor = .red
+        return UISwipeActionsConfiguration(actions: [delete])
+
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,44 +113,33 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         tableView.delegate = self
         tableView.dataSource = self
-        
-        let header = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
-        
-        
-        
-        header.backgroundColor = .clear
-        
-        labelBigTitle = UILabel(frame: header.bounds)
-        labelBigTitle!.text = "Будильник"
-        labelBigTitle!.font = .boldSystemFont(ofSize: 30)
-        labelBigTitle!.textColor = .white
-        header.addSubview(labelBigTitle!)
-        header.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: labelBigTitle!.frame.height)
-        
-        tableView.tableHeaderView = header
-        
+        tableView.tableHeaderView = makeHeaderTable(title: "Будильник")
         tableView.register(AlarmTableViewCell.nib(), forCellReuseIdentifier: AlarmTableViewCell.id)
-        // Do any additional setup after loading the view.
+        
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         print(-scrollView.contentOffset.y)
         labelBigTitle?.font = .boldSystemFont(ofSize: 30+(-scrollView.contentOffset.y/50))
     }
+    func makeHeaderTable(title: String) -> UIView{
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
+
+        header.backgroundColor = .clear
+        
+        labelBigTitle = UILabel(frame: header.bounds)
+        labelBigTitle!.text = title
+        labelBigTitle!.font = .boldSystemFont(ofSize: 30)
+        labelBigTitle!.textColor = .white
+        header.addSubview(labelBigTitle!)
+        header.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: labelBigTitle!.frame.height)
+        return header
+    }
     
 }
 
 extension UILabel {
-    /**
-     This function adding image with text on label.
-
-     - parameter text: The text to add
-     - parameter image: The image to add
-     - parameter imageBehindText: A boolean value that indicate if the imaga is behind text or not
-     - parameter keepPreviousText: A boolean value that indicate if the function keep the actual text or not
-     */
     func addTextWithImage(text: String, image: UIImage, imageBehindText: Bool, keepPreviousText: Bool) {
         
-//        image.withTintColor(UIColor.white)
                     let lAttachment = NSTextAttachment()
         lAttachment.image = image
 

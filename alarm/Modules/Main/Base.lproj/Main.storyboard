@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xQd-fc-Zya">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dab-yE-Ahq">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -17,16 +17,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5FZ-Hv-d8I">
-                                <rect key="frame" x="0.0" y="88" width="414" height="708"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5FZ-Hv-d8I">
+                                <rect key="frame" x="0.0" y="88" width="414" height="748"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="MTE-7t-QFB">
-                                <rect key="frame" x="0.0" y="796" width="414" height="100"/>
+                                <rect key="frame" x="0.0" y="836" width="414" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COW-WA-y6O">
-                                        <rect key="frame" x="0.0" y="0.0" width="103.5" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="103.5" height="60"/>
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" imagePlacement="top" title="Мировые часы">
@@ -36,7 +36,7 @@
                                         </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tUO-98-Uwc">
-                                        <rect key="frame" x="103.5" y="0.0" width="103.5" height="100"/>
+                                        <rect key="frame" x="103.5" y="0.0" width="103.5" height="60"/>
                                         <color key="tintColor" systemColor="systemOrangeColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" imagePlacement="top" title="Будильник">
@@ -45,7 +45,7 @@
                                         </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wqV-DV-9kg">
-                                        <rect key="frame" x="207" y="0.0" width="103.5" height="100"/>
+                                        <rect key="frame" x="207" y="0.0" width="103.5" height="60"/>
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" imagePlacement="top" title="Секундомер">
@@ -54,7 +54,7 @@
                                         </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OXp-L4-hG2">
-                                        <rect key="frame" x="310.5" y="0.0" width="103.5" height="100"/>
+                                        <rect key="frame" x="310.5" y="0.0" width="103.5" height="60"/>
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="timer" catalog="system" imagePlacement="top" title="Таймер">
@@ -63,7 +63,7 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="INg-KF-6Gl"/>
+                                    <constraint firstAttribute="height" constant="60" id="INg-KF-6Gl"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -94,16 +94,70 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1042.0289855072465" y="83.705357142857139"/>
+            <point key="canvasLocation" x="1952.1739130434785" y="83.705357142857139"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--View Controller-->
+        <scene sceneID="3iX-fJ-80X">
+            <objects>
+                <viewController id="SDX-0b-Aph" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7xO-qm-bjT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Iha-nZ-FOk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="sIq-wd-eJN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zJA-CN-pL2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1952" y="879"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="xU5-m4-1hg">
+            <objects>
+                <viewController id="sQE-TA-YUx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="X4P-SW-wR7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Hsi-Lp-waw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="9bI-Sm-fB3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sRK-2a-N2H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1952" y="1707"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="8yN-nc-Syi">
+            <objects>
+                <viewController id="HxU-jD-Ehp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C8P-JI-9pv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="k4B-6v-kQi"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="DPd-9d-GEn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hHk-Zz-mmP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1913" y="-640"/>
+        </scene>
+        <!--Будильник-->
         <scene sceneID="azf-fc-9h6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xQd-fc-Zya" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Будильник" image="alarm.fill" catalog="system" id="h42-4q-Vvf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fqu-Mp-arw">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -112,7 +166,89 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VBA-2i-OE6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-130" y="84"/>
+            <point key="canvasLocation" x="779.71014492753625" y="83.705357142857139"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="qdo-VQ-oZa">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Dab-yE-Ahq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uSv-0H-vvR">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" systemColor="systemOrangeColor"/>
+                        <color key="selectedImageTintColor" systemColor="systemOrangeColor"/>
+                        <tabBarAppearance key="standardAppearance">
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </tabBarAppearance>
+                    </tabBar>
+                    <connections>
+                        <segue destination="zx3-6n-DnL" kind="relationship" relationship="viewControllers" id="fme-tD-kuz"/>
+                        <segue destination="xQd-fc-Zya" kind="relationship" relationship="viewControllers" id="d5L-4y-fNo"/>
+                        <segue destination="urx-UM-2pr" kind="relationship" relationship="viewControllers" id="92E-XI-feO"/>
+                        <segue destination="0av-h8-prF" kind="relationship" relationship="viewControllers" id="vgm-oJ-Obo"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fLs-ph-Amc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-409" y="84"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="NxM-fb-QI6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zx3-6n-DnL" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="7Au-pQ-LKI"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="flM-Uz-wsH">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HxU-jD-Ehp" kind="relationship" relationship="rootViewController" id="pTg-Qp-BEd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r13-q1-4Mb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="741" y="-640"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="5rr-ur-jOb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="urx-UM-2pr" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="k1a-dN-ng7"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SDI-L1-lbh">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="SDX-0b-Aph" kind="relationship" relationship="rootViewController" id="m4C-9U-5PZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ewk-Fm-oOH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="780" y="879"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Nej-j2-Tmk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0av-h8-prF" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="JGV-sG-Ggg"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aGa-wB-ffw">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="sQE-TA-YUx" kind="relationship" relationship="rootViewController" id="cOe-CP-d75"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="15c-Am-UOv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="780" y="1707"/>
         </scene>
     </scenes>
     <resources>
@@ -120,6 +256,9 @@
         <image name="globe" catalog="system" width="32" height="32"/>
         <image name="stopwatch.fill" catalog="system" width="32" height="32"/>
         <image name="timer" catalog="system" width="32" height="32"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
