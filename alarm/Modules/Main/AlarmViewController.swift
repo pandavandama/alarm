@@ -100,6 +100,13 @@ class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDat
         dataList.remove(at: indexPath.row)
         tableView.reloadData()
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        guard let myVC = self.storyboard?.instantiateViewController(withIdentifier: "AlarmEditPopup") else { return }
+        let navController = UINavigationController(rootViewController: myVC)
+
+        self.navigationController?.present(navController, animated: true, completion: nil)
+    }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .normal, title: "Delete"){ [weak self] (action,view,handler) in
@@ -119,6 +126,8 @@ class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.dataSource = self
         tableView.tableHeaderView = makeHeaderTable(title: "Будильник")
         tableView.register(AlarmTableViewCell.nib(), forCellReuseIdentifier: AlarmTableViewCell.id)
+        
+        
         
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

@@ -49,11 +49,84 @@
                         <outlet property="editTabButton" destination="0r7-0Z-BZD" id="kc6-xh-jEP"/>
                         <outlet property="plusTabButton" destination="M3x-mU-73A" id="b2R-ta-yj4"/>
                         <outlet property="tableView" destination="5FZ-Hv-d8I" id="nWs-6a-dcP"/>
+                        <segue destination="uLB-u7-0cf" kind="presentation" id="ki2-0G-tWm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1952.1739130434785" y="83.705357142857139"/>
+        </scene>
+        <!--Переставить-->
+        <scene sceneID="WXq-NW-UmY">
+            <objects>
+                <viewController storyboardIdentifier="AlarmEditPopup" id="yS2-0f-Zra" customClass="AlarmEditViewController" customModule="alarm" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RVZ-TN-W4Y">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="Qqm-fK-0Xe">
+                                <rect key="frame" x="35" y="56" width="344" height="216"/>
+                            </datePicker>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="u5M-jA-TPG">
+                                <rect key="frame" x="35" y="282" width="344" height="280"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="280" id="CWQ-9C-92K"/>
+                                </constraints>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CFj-TC-wfS">
+                                <rect key="frame" x="35" y="592" width="344" height="50"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="QRj-44-FVI"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Удалить будильник"/>
+                                <connections>
+                                    <action selector="deleteAction:" destination="yS2-0f-Zra" eventType="touchUpInside" id="y0H-EQ-Cqh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="EkR-hm-n0N"/>
+                        <color key="backgroundColor" red="0.16410281117429437" green="0.16410281117429437" blue="0.16410281117429437" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="EkR-hm-n0N" firstAttribute="bottom" secondItem="CFj-TC-wfS" secondAttribute="bottom" constant="200" id="64Z-ZD-AY9"/>
+                            <constraint firstItem="Qqm-fK-0Xe" firstAttribute="leading" secondItem="EkR-hm-n0N" secondAttribute="leading" constant="35" id="AaF-69-4g3"/>
+                            <constraint firstItem="EkR-hm-n0N" firstAttribute="trailing" secondItem="u5M-jA-TPG" secondAttribute="trailing" constant="35" id="Htk-hU-W3Z"/>
+                            <constraint firstItem="Qqm-fK-0Xe" firstAttribute="top" secondItem="EkR-hm-n0N" secondAttribute="top" id="Rcq-mb-Y7l"/>
+                            <constraint firstItem="EkR-hm-n0N" firstAttribute="trailing" secondItem="CFj-TC-wfS" secondAttribute="trailing" constant="35" id="e2A-0X-f1n"/>
+                            <constraint firstItem="CFj-TC-wfS" firstAttribute="top" secondItem="u5M-jA-TPG" secondAttribute="bottom" constant="30" id="lgW-dN-5bQ"/>
+                            <constraint firstItem="u5M-jA-TPG" firstAttribute="top" secondItem="Qqm-fK-0Xe" secondAttribute="bottom" constant="10" id="szT-XL-H6q"/>
+                            <constraint firstItem="CFj-TC-wfS" firstAttribute="leading" secondItem="EkR-hm-n0N" secondAttribute="leading" constant="35" id="uww-HR-pbP"/>
+                            <constraint firstItem="u5M-jA-TPG" firstAttribute="leading" secondItem="EkR-hm-n0N" secondAttribute="leading" constant="35" id="vVy-5F-rRF"/>
+                            <constraint firstItem="EkR-hm-n0N" firstAttribute="trailing" secondItem="Qqm-fK-0Xe" secondAttribute="trailing" constant="35" id="zd9-4V-siu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Переставить" id="Izg-hn-py8">
+                        <barButtonItem key="leftBarButtonItem" title="Отменить" id="bLS-ct-gbL">
+                            <color key="tintColor" systemColor="systemOrangeColor"/>
+                            <connections>
+                                <action selector="backAction:" destination="yS2-0f-Zra" id="f8H-5q-hGN"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Сохранить" id="7lY-Tb-k8z">
+                            <color key="tintColor" systemColor="systemOrangeColor"/>
+                            <connections>
+                                <action selector="saveAction:" destination="yS2-0f-Zra" id="xNJ-GJ-3mF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="deleteButton" destination="CFj-TC-wfS" id="XDv-0j-LSr"/>
+                        <outlet property="pickerTime" destination="Qqm-fK-0Xe" id="Yaz-u4-pKe"/>
+                        <outlet property="tableView" destination="u5M-jA-TPG" id="UZc-Ok-h9G"/>
+                        <outlet property="tableViewHeight" destination="CWQ-9C-92K" id="alr-zV-UDd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jv0-mR-Fir" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4288.4057971014499" y="83.705357142857139"/>
         </scene>
         <!--Секундомер-->
         <scene sceneID="3iX-fJ-80X">
@@ -240,6 +313,35 @@
             </objects>
             <point key="canvasLocation" x="780" y="1707"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="emX-n5-zdH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uLB-u7-0cf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OCh-uy-6N2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <navigationBarAppearance key="scrollEdgeAppearance">
+                            <textAttributes key="titleTextAttributes">
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </textAttributes>
+                        </navigationBarAppearance>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yS2-0f-Zra" kind="relationship" relationship="rootViewController" id="0OR-po-gRS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0nO-SB-Gbw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3379.7101449275365" y="83.705357142857139"/>
+        </scene>
     </scenes>
     <resources>
         <image name="alarm.fill" catalog="system" width="32" height="32"/>
@@ -249,6 +351,9 @@
         <image name="timer" catalog="system" width="32" height="32"/>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

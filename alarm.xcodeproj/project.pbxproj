@@ -21,6 +21,11 @@
 		CBB727272890389400621ED0 /* WorldClockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB727262890389400621ED0 /* WorldClockModel.swift */; };
 		CBB7272A2890470D00621ED0 /* WorldClockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB727282890470D00621ED0 /* WorldClockTableViewCell.swift */; };
 		CBB7272B2890470D00621ED0 /* WorldClockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBB727292890470D00621ED0 /* WorldClockTableViewCell.xib */; };
+		CBB7272D289066AA00621ED0 /* AlarmEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7272C289066AA00621ED0 /* AlarmEditViewController.swift */; };
+		CBB7273628906B1900621ED0 /* AlarmDetailsTableViewCellType1.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7273428906B1900621ED0 /* AlarmDetailsTableViewCellType1.swift */; };
+		CBB7273728906B1900621ED0 /* AlarmDetailsTableViewCellType1.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBB7273528906B1900621ED0 /* AlarmDetailsTableViewCellType1.xib */; };
+		CBB7273A28906B3900621ED0 /* AlarmDetailsTableViewCellType2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7273828906B3900621ED0 /* AlarmDetailsTableViewCellType2.swift */; };
+		CBB7273B28906B3900621ED0 /* AlarmDetailsTableViewCellType2.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBB7273928906B3900621ED0 /* AlarmDetailsTableViewCellType2.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +45,11 @@
 		CBB727262890389400621ED0 /* WorldClockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClockModel.swift; sourceTree = "<group>"; };
 		CBB727282890470D00621ED0 /* WorldClockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClockTableViewCell.swift; sourceTree = "<group>"; };
 		CBB727292890470D00621ED0 /* WorldClockTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorldClockTableViewCell.xib; sourceTree = "<group>"; };
+		CBB7272C289066AA00621ED0 /* AlarmEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmEditViewController.swift; sourceTree = "<group>"; };
+		CBB7273428906B1900621ED0 /* AlarmDetailsTableViewCellType1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailsTableViewCellType1.swift; sourceTree = "<group>"; };
+		CBB7273528906B1900621ED0 /* AlarmDetailsTableViewCellType1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmDetailsTableViewCellType1.xib; sourceTree = "<group>"; };
+		CBB7273828906B3900621ED0 /* AlarmDetailsTableViewCellType2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailsTableViewCellType2.swift; sourceTree = "<group>"; };
+		CBB7273928906B3900621ED0 /* AlarmDetailsTableViewCellType2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmDetailsTableViewCellType2.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,10 +113,12 @@
 		CB5D436B288F15DB00276A4F /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				CBB7273328906AE500621ED0 /* AlarmDetailsSettingsCell */,
 				CB5D436C288F175A00276A4F /* AlarmCell */,
 				CB5D4356288F14E800276A4F /* AlarmViewController.swift */,
 				CB5D4358288F14E800276A4F /* Main.storyboard */,
 				CB5D4371288F204500276A4F /* AlarmModel.swift */,
+				CBB7272C289066AA00621ED0 /* AlarmEditViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -129,6 +141,17 @@
 				CBB727292890470D00621ED0 /* WorldClockTableViewCell.xib */,
 			);
 			path = WorldClock;
+			sourceTree = "<group>";
+		};
+		CBB7273328906AE500621ED0 /* AlarmDetailsSettingsCell */ = {
+			isa = PBXGroup;
+			children = (
+				CBB7273428906B1900621ED0 /* AlarmDetailsTableViewCellType1.swift */,
+				CBB7273528906B1900621ED0 /* AlarmDetailsTableViewCellType1.xib */,
+				CBB7273828906B3900621ED0 /* AlarmDetailsTableViewCellType2.swift */,
+				CBB7273928906B3900621ED0 /* AlarmDetailsTableViewCellType2.xib */,
+			);
+			path = AlarmDetailsSettingsCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,6 +212,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBB7273728906B1900621ED0 /* AlarmDetailsTableViewCellType1.xib in Resources */,
+				CBB7273B28906B3900621ED0 /* AlarmDetailsTableViewCellType2.xib in Resources */,
 				CB5D4362288F14E900276A4F /* LaunchScreen.storyboard in Resources */,
 				CB5D435F288F14E900276A4F /* Assets.xcassets in Resources */,
 				CB5D435A288F14E800276A4F /* Main.storyboard in Resources */,
@@ -206,10 +231,13 @@
 			files = (
 				CB5D436F288F178600276A4F /* AlarmTableViewCell.swift in Sources */,
 				CBB727252890383700621ED0 /* WorldClockViewController.swift in Sources */,
+				CBB7272D289066AA00621ED0 /* AlarmEditViewController.swift in Sources */,
 				CB5D4357288F14E800276A4F /* AlarmViewController.swift in Sources */,
 				CB5D4353288F14E800276A4F /* AppDelegate.swift in Sources */,
 				CB5D4355288F14E800276A4F /* SceneDelegate.swift in Sources */,
+				CBB7273A28906B3900621ED0 /* AlarmDetailsTableViewCellType2.swift in Sources */,
 				CBB727272890389400621ED0 /* WorldClockModel.swift in Sources */,
+				CBB7273628906B1900621ED0 /* AlarmDetailsTableViewCellType1.swift in Sources */,
 				CBB7272A2890470D00621ED0 /* WorldClockTableViewCell.swift in Sources */,
 				CB5D435D288F14E800276A4F /* alarm.xcdatamodeld in Sources */,
 				CB5D4372288F204500276A4F /* AlarmModel.swift in Sources */,
