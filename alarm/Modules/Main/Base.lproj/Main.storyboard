@@ -84,7 +84,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Править" id="0r7-0Z-BZD">
                             <color key="tintColor" systemColor="systemOrangeColor"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="+" id="M3x-mU-73A">
+                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" width="10" id="M3x-mU-73A">
                             <color key="tintColor" systemColor="systemOrangeColor"/>
                         </barButtonItem>
                     </navigationItem>
@@ -96,49 +96,49 @@
             </objects>
             <point key="canvasLocation" x="1952.1739130434785" y="83.705357142857139"/>
         </scene>
-        <!--View Controller-->
+        <!--Секундомер-->
         <scene sceneID="3iX-fJ-80X">
             <objects>
                 <viewController id="SDX-0b-Aph" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7xO-qm-bjT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Iha-nZ-FOk"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <navigationItem key="navigationItem" id="sIq-wd-eJN"/>
+                    <navigationItem key="navigationItem" title="Секундомер" id="sIq-wd-eJN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zJA-CN-pL2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1952" y="879"/>
         </scene>
-        <!--View Controller-->
+        <!--Таймер-->
         <scene sceneID="xU5-m4-1hg">
             <objects>
                 <viewController id="sQE-TA-YUx" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X4P-SW-wR7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Hsi-Lp-waw"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9bI-Sm-fB3"/>
+                    <navigationItem key="navigationItem" title="Таймер" id="9bI-Sm-fB3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sRK-2a-N2H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1952" y="1707"/>
         </scene>
-        <!--View Controller-->
+        <!--Мировые часы-->
         <scene sceneID="8yN-nc-Syi">
             <objects>
                 <viewController id="HxU-jD-Ehp" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C8P-JI-9pv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="k4B-6v-kQi"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <navigationItem key="navigationItem" id="DPd-9d-GEn"/>
+                    <navigationItem key="navigationItem" title="Мировые часы" id="DPd-9d-GEn"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hHk-Zz-mmP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -174,6 +174,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Dab-yE-Ahq" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uSv-0H-vvR">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" systemColor="systemOrangeColor"/>
@@ -193,15 +194,20 @@
             </objects>
             <point key="canvasLocation" x="-409" y="84"/>
         </scene>
-        <!--Item-->
+        <!--Мировые часы-->
         <scene sceneID="NxM-fb-QI6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zx3-6n-DnL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="7Au-pQ-LKI"/>
+                    <tabBarItem key="tabBarItem" title="Мировые часы" image="globe" catalog="system" id="7Au-pQ-LKI"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="flM-Uz-wsH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="flM-Uz-wsH">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -212,15 +218,20 @@
             </objects>
             <point key="canvasLocation" x="741" y="-640"/>
         </scene>
-        <!--Item-->
+        <!--Секундомер-->
         <scene sceneID="5rr-ur-jOb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="urx-UM-2pr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="k1a-dN-ng7"/>
+                    <tabBarItem key="tabBarItem" title="Секундомер" image="stopwatch.fill" catalog="system" id="k1a-dN-ng7"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SDI-L1-lbh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="SDI-L1-lbh">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -231,15 +242,20 @@
             </objects>
             <point key="canvasLocation" x="780" y="879"/>
         </scene>
-        <!--Item-->
+        <!--Таймер-->
         <scene sceneID="Nej-j2-Tmk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0av-h8-prF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="JGV-sG-Ggg"/>
+                    <tabBarItem key="tabBarItem" title="Таймер" image="timer" catalog="system" id="JGV-sG-Ggg"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aGa-wB-ffw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="aGa-wB-ffw">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -254,11 +270,9 @@
     <resources>
         <image name="alarm.fill" catalog="system" width="32" height="32"/>
         <image name="globe" catalog="system" width="32" height="32"/>
+        <image name="plus" catalog="system" width="32" height="32"/>
         <image name="stopwatch.fill" catalog="system" width="32" height="32"/>
         <image name="timer" catalog="system" width="32" height="32"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
