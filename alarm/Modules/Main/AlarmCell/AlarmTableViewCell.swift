@@ -14,7 +14,8 @@ class AlarmTableViewCell: UITableViewCell {
     static func nib() -> UINib{
         return UINib(nibName: id, bundle: nil)
     }
-    
+    var data: SpecificAlarm!
+    var mainVC: AlarmViewController?
     
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var switchAlarm: UISwitch!
@@ -31,11 +32,16 @@ class AlarmTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func bindView(data: SpecificAlarm){
-        print("ess")
-        timeLabel.text = data.time
+        self.data = data
+        timeLabel.text = self.data.time
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Section \(section)"
+    }
+    
+    @IBAction func switchAction(_ sender: UISwitch) {
+        data.isEnabled = sender.isOn
+        mainVC?.editAlarmByIndex(index: data.index!, alarm: data)
     }
     
 }

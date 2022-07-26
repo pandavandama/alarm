@@ -80,12 +80,20 @@ class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         return headerView
     }
-    
+    func editAlarmByIndex(index: Int,alarm: SpecificAlarm){
+        UsersDefaultsModel().editSpecificAlarmClock(index: index, newElement: alarm)
+        tableView.reloadData()
+    }
     func dataInit(){
-        for i in 0...10{
-            dataList.append(SpecificAlarm(time: "00:0\(i)", swich: .random()))
-        }
-        print(dataList)
+       dataList = UsersDefaultsModel().getAlarmAllAlarmClock()
+//        for i in 0...10{
+//            dataList.append(SpecificAlarm(time: "00:0\(i)", isEnabled:  .random(),repeating: 1,name: "Будильник",soundName: "1"))
+//        }
+//        UsersDefaultsModel().setAlarmClock(data: dataList[0])
+//        UsersDefaultsModel().setAlarmClock(data: dataList[0])
+
+//        print(dataList)
+        
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         if indexPath.section == 0{
@@ -96,8 +104,10 @@ class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func deleteCellFromTable(indexPath: IndexPath){
         print("Delete Cell at ", indexPath)
-        tableView.cellForRow(at: indexPath)?.removeFromSuperview()
-        dataList.remove(at: indexPath.row)
+//        tableView.cellForRow(at: indexPath)?.removeFromSuperview()
+//        dataList.remove(at: indexPath.row)
+        UsersDefaultsModel().removeFromAlarmList(index: indexPath.row)
+        dataInit()
         tableView.reloadData()
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -126,7 +136,6 @@ class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.dataSource = self
         tableView.tableHeaderView = makeHeaderTable(title: "Будильник")
         tableView.register(AlarmTableViewCell.nib(), forCellReuseIdentifier: AlarmTableViewCell.id)
-        
         
         
     }

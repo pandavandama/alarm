@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct SpecificAlarm{
+struct SpecificAlarm: Codable{
     var time: String
-    var swich: Bool
+    var isEnabled: Bool
+    var repeating: Int
+    var name: String
+    var soundName: String
+    var index: Int?
 }
