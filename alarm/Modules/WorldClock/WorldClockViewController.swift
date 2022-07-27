@@ -45,11 +45,11 @@ class WorldClockViewController: UIViewController
     
     
     var showNotificationSettingsUI = false
-    var reminderEnabled = false
-    var selectedTrigger = ReminderType.time
+    var reminderEnabled = true
+    var selectedTrigger = ReminderType.calendar
     let timeDurations: [Int] = Array(1...59)
     var timeDurationIndex: Int = 0
-    private var dateTrigger = Date()
+    private var dateTrigger = Date.now
     private var shouldRepeat = false
     var taskName: String = "test"
     var taskManager = TaskManager.shared
@@ -60,12 +60,16 @@ class WorldClockViewController: UIViewController
           if granted {
           }
         }
+
         
+        dateTrigger = Calendar.current.date(byAdding: .second, value: 10, to: .now)!
+
         
-//        taskManager.addNewTask(taskName, makeReminder())
-        for t in taskManager.tasks{
-            taskManager.remove(task: t)
-        }
+        taskManager.addNewTask(taskName, makeReminder())
+        
+//        for t in taskManager.tasks{
+//            taskManager.remove(task: t)
+//        }
         print("spisok",taskManager.tasks)
 //        presentationMode.wrappedValue.dismiss()
     }

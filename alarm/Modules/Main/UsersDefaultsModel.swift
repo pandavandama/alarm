@@ -47,7 +47,13 @@ class UsersDefaultsModel{
     }
     
     func getAlarmAllAlarmClock() -> [SpecificAlarm]{
-        var string = usersDefaults.string(forKey: "AlarmList")
+            
+        let string = usersDefaults.string(forKey: "AlarmList")
+        
+        guard string != nil else{
+            return []
+        }
+        
         var alarmList = try? JSONDecoder().decode([SpecificAlarm].self, from: string!.data(using: .utf8)!)
         print("jopa2,",alarmList)
 
