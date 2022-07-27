@@ -30,7 +30,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" red="0.24222106878290472" green="0.24222106878290472" blue="0.24222106878290472" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="uOQ-os-JXh" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="QBu-hL-t2f"/>
                     <constraint firstItem="Rb9-bc-lm2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Z8v-CU-TQD"/>
@@ -39,6 +39,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <point key="canvasLocation" x="139" y="65"/>
         </tableViewCell>
     </objects>

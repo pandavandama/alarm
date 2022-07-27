@@ -19,6 +19,10 @@ class AlarmEditViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         if indexPath.row < 3{
             let cell = tableView.dequeueReusableCell(withIdentifier: AlarmDetailsTableViewCellType1.id, for: indexPath) as! AlarmDetailsTableViewCellType1
+//            let bgColorView = UIView()
+//            bgColorView.backgroundColor = .black
+//            cell.selectedBackgroundView = bgColorView
+            
             return cell
         }
         else{
@@ -66,6 +70,8 @@ class AlarmEditViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+//        tableView.backgroundColor = .black
         
         tableView.register(AlarmDetailsTableViewCellType1.nib(), forCellReuseIdentifier: AlarmDetailsTableViewCellType1.id)
         tableView.register(AlarmDetailsTableViewCellType2.nib(), forCellReuseIdentifier: AlarmDetailsTableViewCellType2.id)
