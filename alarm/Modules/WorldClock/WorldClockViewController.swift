@@ -53,6 +53,7 @@ class WorldClockViewController: UIViewController
     private var shouldRepeat = true
     var taskName: String = "test"
     var taskManager = TaskManager.shared
+    var notificationManager = NotificationManager.shared
     
     func test(){
         NotificationManager.shared.requestAuthorization { granted in
@@ -73,6 +74,7 @@ class WorldClockViewController: UIViewController
                 for t in taskManager.tasks{
                     taskManager.remove(task: t)
                 }
+//        notificationManager.settings?.soundSetting = .enabled
         taskManager.addNewTask(taskName, makeReminder())
         
 //        for t in taskManager.tasks{
@@ -87,6 +89,7 @@ class WorldClockViewController: UIViewController
         return nil
       }
       var reminder = Reminder()
+        reminder.soundName = "a1.caf"
       reminder.reminderType = selectedTrigger
       switch selectedTrigger {
       case .time:

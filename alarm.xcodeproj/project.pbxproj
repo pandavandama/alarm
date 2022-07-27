@@ -33,6 +33,12 @@
 		CBD0F25F2891B99A005960D2 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD0F25E2891B99A005960D2 /* NotificationManager.swift */; };
 		CBD0F2612891B9B1005960D2 /* TaskPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD0F2602891B9B1005960D2 /* TaskPersistenceManager.swift */; };
 		CBD0F2652891BB22005960D2 /* Taks.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD0F2642891BB22005960D2 /* Taks.swift */; };
+		CBD0F26F2891E100005960D2 /* a1.caf in Resources */ = {isa = PBXBuildFile; fileRef = CBD0F26E2891E100005960D2 /* a1.caf */; };
+		CBD0F2712891E534005960D2 /* a2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CBD0F2702891E534005960D2 /* a2.mp3 */; };
+		CBD0F2732891E540005960D2 /* a3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CBD0F2722891E540005960D2 /* a3.mp3 */; };
+		CBD0F2752891E54E005960D2 /* a4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CBD0F2742891E54E005960D2 /* a4.mp3 */; };
+		CBD0F2772891E555005960D2 /* a5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CBD0F2762891E555005960D2 /* a5.mp3 */; };
+		CBD0F2792891E55D005960D2 /* soundtrack.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CBD0F2782891E55D005960D2 /* soundtrack.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +70,12 @@
 		CBD0F25E2891B99A005960D2 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		CBD0F2602891B9B1005960D2 /* TaskPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPersistenceManager.swift; sourceTree = "<group>"; };
 		CBD0F2642891BB22005960D2 /* Taks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taks.swift; sourceTree = "<group>"; };
+		CBD0F26E2891E100005960D2 /* a1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = a1.caf; sourceTree = "<group>"; };
+		CBD0F2702891E534005960D2 /* a2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = a2.mp3; sourceTree = "<group>"; };
+		CBD0F2722891E540005960D2 /* a3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = a3.mp3; sourceTree = "<group>"; };
+		CBD0F2742891E54E005960D2 /* a4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = a4.mp3; sourceTree = "<group>"; };
+		CBD0F2762891E555005960D2 /* a5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = a5.mp3; sourceTree = "<group>"; };
+		CBD0F2782891E55D005960D2 /* soundtrack.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = soundtrack.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +108,12 @@
 		CB5D4351288F14E800276A4F /* alarm */ = {
 			isa = PBXGroup;
 			children = (
+				CBD0F26E2891E100005960D2 /* a1.caf */,
+				CBD0F2702891E534005960D2 /* a2.mp3 */,
+				CBD0F2722891E540005960D2 /* a3.mp3 */,
+				CBD0F2742891E54E005960D2 /* a4.mp3 */,
+				CBD0F2762891E555005960D2 /* a5.mp3 */,
+				CBD0F2782891E55D005960D2 /* soundtrack.mp3 */,
 				CB5D436A288F15C900276A4F /* Modules */,
 				CB5D4369288F15B100276A4F /* Application */,
 				CB5D435E288F14E900276A4F /* Assets.xcassets */,
@@ -241,11 +259,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBD0F2732891E540005960D2 /* a3.mp3 in Resources */,
+				CBD0F26F2891E100005960D2 /* a1.caf in Resources */,
+				CBD0F2752891E54E005960D2 /* a4.mp3 in Resources */,
+				CBD0F2792891E55D005960D2 /* soundtrack.mp3 in Resources */,
 				CBB7273728906B1900621ED0 /* AlarmDetailsTableViewCellType1.xib in Resources */,
 				CBB7273B28906B3900621ED0 /* AlarmDetailsTableViewCellType2.xib in Resources */,
 				CB5D4362288F14E900276A4F /* LaunchScreen.storyboard in Resources */,
+				CBD0F2772891E555005960D2 /* a5.mp3 in Resources */,
 				CB5D435F288F14E900276A4F /* Assets.xcassets in Resources */,
 				CB5D435A288F14E800276A4F /* Main.storyboard in Resources */,
+				CBD0F2712891E534005960D2 /* a2.mp3 in Resources */,
 				CB5D4370288F178600276A4F /* AlarmTableViewCell.xib in Resources */,
 				CBB7272B2890470D00621ED0 /* WorldClockTableViewCell.xib in Resources */,
 			);
