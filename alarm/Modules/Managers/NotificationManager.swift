@@ -103,7 +103,7 @@ class NotificationManager: ObservableObject {
       if let date = task.reminder.date {
         trigger = UNCalendarNotificationTrigger(
           dateMatching: Calendar.current.dateComponents(
-            [.day, .month, .year, .hour, .minute],
+            [.day, .month, .year, .hour, .minute, .second],
             from: date),
           repeats: task.reminder.repeats)
       }

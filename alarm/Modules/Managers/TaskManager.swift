@@ -64,6 +64,7 @@ class TaskManager: ObservableObject {
 
   func addNewTask(_ taskName: String, _ reminder: Reminder?) {
     if let reminder = reminder {
+        print("save1")
       save(task: Task(name: taskName, reminderEnabled: true, reminder: reminder))
     } else {
       save(task: Task(name: taskName, reminderEnabled: false, reminder: Reminder()))
@@ -71,6 +72,7 @@ class TaskManager: ObservableObject {
   }
 
   func remove(task: Task) {
+      print("REMOVING")
     tasks.removeAll {
       $0.id == task.id
     }

@@ -50,7 +50,7 @@ class WorldClockViewController: UIViewController
     let timeDurations: [Int] = Array(1...59)
     var timeDurationIndex: Int = 0
     private var dateTrigger = Date.now
-    private var shouldRepeat = false
+    private var shouldRepeat = true
     var taskName: String = "test"
     var taskManager = TaskManager.shared
     
@@ -60,11 +60,19 @@ class WorldClockViewController: UIViewController
           if granted {
           }
         }
-
-        
+//        var dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//        print(Date.now)
+//        print(dateFormatter.timeZone)
+        print(dateTrigger)
         dateTrigger = Calendar.current.date(byAdding: .second, value: 10, to: .now)!
-
         
+        print(makeReminder())
+//        print(Calendar.Component.minute)
+        
+                for t in taskManager.tasks{
+                    taskManager.remove(task: t)
+                }
         taskManager.addNewTask(taskName, makeReminder())
         
 //        for t in taskManager.tasks{

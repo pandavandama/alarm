@@ -88,6 +88,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     willPresent notification: UNNotification,
     withCompletionHandler completionHandler: (UNNotificationPresentationOptions) -> Void
   ) {
+      print("EST")
     completionHandler(.banner)
   }
 
@@ -126,6 +127,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
       let userInfo = response.notification.request.content.userInfo
       if let taskData = userInfo["Task"] as? Data {
         if let task = try? JSONDecoder().decode(Task.self, from: taskData) {
+            print("MARKASDONE")
           // 3
           TaskManager.shared.remove(task: task)
         }
