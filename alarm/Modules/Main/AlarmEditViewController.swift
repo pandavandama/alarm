@@ -11,6 +11,8 @@ class AlarmEditViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     
     
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         4
     }
@@ -32,6 +34,7 @@ class AlarmEditViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         
     }
+    var data: SpecificAlarm?
     var alarmListVC: AlarmViewController?
     var indexPath: IndexPath?
 
@@ -70,9 +73,7 @@ class AlarmEditViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         tableView.delegate = self
         tableView.dataSource = self
-        
-//        tableView.backgroundColor = .black
-        
+
         tableView.register(AlarmDetailsTableViewCellType1.nib(), forCellReuseIdentifier: AlarmDetailsTableViewCellType1.id)
         tableView.register(AlarmDetailsTableViewCellType2.nib(), forCellReuseIdentifier: AlarmDetailsTableViewCellType2.id)
         
@@ -83,6 +84,13 @@ class AlarmEditViewController: UIViewController,UITableViewDelegate,UITableViewD
         pickerTime.locale = Locale.init(identifier: "en_GB")
         pickerTime.setValue(UIColor.white, forKeyPath: "textColor")
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat =  "HH:mm"
+        
+        pickerTime.date = dateFormatter.date(from: "14:31")!
+        pickerTime.date = dateFormatter.date(from: data!.time)!
+        
+        
         deleteButton.layer.cornerRadius = 10.0
         
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
@@ -92,7 +100,9 @@ class AlarmEditViewController: UIViewController,UITableViewDelegate,UITableViewD
         // Do any additional setup after loading the view.
     }
     
-
+    func setData(data: SpecificAlarm){
+        self.data = data
+    }
     /*
     // MARK: - Navigation
 

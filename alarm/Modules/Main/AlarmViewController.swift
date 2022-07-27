@@ -89,10 +89,6 @@ class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDat
 //        for i in 0...10{
 //            dataList.append(SpecificAlarm(time: "00:0\(i)", isEnabled:  .random(),repeating: 1,name: "Будильник",soundName: "1"))
 //        }
-//        UsersDefaultsModel().setAlarmClock(data: dataList[0])
-//        UsersDefaultsModel().setAlarmClock(data: dataList[0])
-
-//        print(dataList)
         
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -104,18 +100,26 @@ class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func deleteCellFromTable(indexPath: IndexPath){
         print("Delete Cell at ", indexPath)
-//        tableView.cellForRow(at: indexPath)?.removeFromSuperview()
-//        dataList.remove(at: indexPath.row)
         UsersDefaultsModel().removeFromAlarmList(index: indexPath.row)
         dataInit()
         tableView.reloadData()
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        guard let myVC = self.storyboard?.instantiateViewController(withIdentifier: "AlarmEditPopup") else { return }
-        let navController = UINavigationController(rootViewController: myVC)
+        guard let myVC = self.storyboard?.instantiateViewController(withIdentifier: "AlarmEditPopup") as? AlarmEditViewController else { return }
+        myVC.setData(data: dataList[1])
 
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat =  "HH:mm"
+        
+        
+        let navController = UINavigationController(rootViewController: myVC)
+        
         self.navigationController?.present(navController, animated: true, completion: nil)
+        
+        
+//        myVC.pickerTime.date = dateFormatter.date(from: "17:00")!
+
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

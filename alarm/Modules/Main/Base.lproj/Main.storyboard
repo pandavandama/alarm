@@ -120,7 +120,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="deleteButton" destination="CFj-TC-wfS" id="XDv-0j-LSr"/>
-                        <outlet property="pickerTime" destination="Qqm-fK-0Xe" id="Yaz-u4-pKe"/>
+                        <outlet property="pickerTime" destination="Qqm-fK-0Xe" id="7L5-I5-FST"/>
                         <outlet property="tableView" destination="u5M-jA-TPG" id="UZc-Ok-h9G"/>
                         <outlet property="tableViewHeight" destination="CWQ-9C-92K" id="alr-zV-UDd"/>
                     </connections>
