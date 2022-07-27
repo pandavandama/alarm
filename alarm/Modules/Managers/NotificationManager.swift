@@ -80,6 +80,7 @@ class NotificationManager: ObservableObject {
   func scheduleNotification(task: Task) {
     // 2
     let content = UNMutableNotificationContent()
+      content.sound = UNNotificationSound.default
     content.title = task.name
     content.body = "Gentle reminder for your task!"
     content.categoryIdentifier = "OrganizerPlusCategory"

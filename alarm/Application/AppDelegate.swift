@@ -90,6 +90,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
   ) {
       print("EST")
     completionHandler(.banner)
+      completionHandler(.sound)
   }
 
   private func configureUserNotifications() {
