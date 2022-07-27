@@ -24,6 +24,9 @@
                     </label>
                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="edk-X3-mgx">
                         <rect key="frame" x="255" y="6.5" width="51" height="31"/>
+                        <connections>
+                            <action selector="switchChange:" destination="KGk-i7-Jjw" eventType="valueChanged" id="S4t-vs-Etu"/>
+                        </connections>
                     </switch>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -36,6 +39,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="labelName" destination="IIk-nN-QeN" id="56x-rA-uDE"/>
+            </connections>
             <point key="canvasLocation" x="139" y="65"/>
         </tableViewCell>
     </objects>

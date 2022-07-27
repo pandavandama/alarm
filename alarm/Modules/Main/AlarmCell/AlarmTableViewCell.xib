@@ -48,6 +48,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="VvT-TF-jcx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="5FI-ts-qJs"/>
                     <constraint firstItem="RCV-64-ZWM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="LHY-Ov-HEa"/>
@@ -59,7 +60,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="labelAlarm" destination="VvT-TF-jcx" id="sIM-KK-HUc"/>
                 <outlet property="switchAlarm" destination="LN0-85-HfD" id="K2H-ec-SI4"/>

@@ -12,43 +12,45 @@ class UsersDefaultsModel{
     var usersDefaults = UserDefaults.standard
     
     func setAlarmClock(data: SpecificAlarm){
-        
         var json = ""
-        
-        if let alarmList = usersDefaults.string(forKey: "AlarmList"){
-            print("filled")
+        if usersDefaults.string(forKey: "AlarmList") != nil{
+            
             var alarmList = getAlarmAllAlarmClock()
             alarmList.append(data)
+            alarmList[alarmList.count-1].index = alarmList.count-1
+            print("pochemunil ",alarmList)
             let jsonData = try! JSONEncoder().encode(alarmList)
             json = String(data: jsonData, encoding: .utf8)!
-            print(alarmList)
         }else{
-            print("empty")
+            print("AAAAAAAAAAA")
             var alarmList: [SpecificAlarm] = []
+            
             alarmList.append(data)
+            alarmList[0].index = 0
             let jsonData = try! JSONEncoder().encode(alarmList)
             json = String(data: jsonData, encoding: .utf8)!
-            print("test 123",alarmList)
         }
-        
         usersDefaults.set(json, forKey: "AlarmList")
-        
     }
     
-    func editSpecificAlarmClock(index: Int,newElement: SpecificAlarm){
+    func editSpecificAlarmClock(newElement: SpecificAlarm){
         var json = ""
-        
         var alarmList = getAlarmAllAlarmClock()
-        alarmList[index] = newElement
+        alarmList[newElement.index!] = newElement
+        alarmList = alarmList.sorted(by: { Int($0.timestamp()!) > Int($1.timestamp()!) })
+        for i in 0..<alarmList.count{
+            alarmList[i].index = i
+        }
         let jsonData = try! JSONEncoder().encode(alarmList)
         json = String(data: jsonData, encoding: .utf8)!
+        self.usersDefaults.set(json, forKey: "AlarmList")
     }
     
     func getAlarmAllAlarmClock() -> [SpecificAlarm]{
         var string = usersDefaults.string(forKey: "AlarmList")
-        print(string)
         var alarmList = try? JSONDecoder().decode([SpecificAlarm].self, from: string!.data(using: .utf8)!)
-        
+        print("jopa2,",alarmList)
+
         return alarmList!
         
     }

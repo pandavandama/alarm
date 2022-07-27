@@ -15,6 +15,15 @@ class AlarmDetailsTableViewCellType2: UITableViewCell {
         return UINib(nibName: id, bundle: nil)
     }
     
+    var AlarmSettingsVC: AlarmEditViewController?
+    
+    
+    @IBOutlet weak var labelName: UILabel!
+    
+    @IBAction func switchChange(_ sender: UISwitch) {
+        AlarmSettingsVC?.innerData?.isEnabled = sender.isOn
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

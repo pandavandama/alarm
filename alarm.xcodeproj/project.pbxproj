@@ -27,6 +27,13 @@
 		CBB7273A28906B3900621ED0 /* AlarmDetailsTableViewCellType2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7273828906B3900621ED0 /* AlarmDetailsTableViewCellType2.swift */; };
 		CBB7273B28906B3900621ED0 /* AlarmDetailsTableViewCellType2.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBB7273928906B3900621ED0 /* AlarmDetailsTableViewCellType2.xib */; };
 		CBB7273E28907A4C00621ED0 /* UsersDefaultsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7273D28907A4C00621ED0 /* UsersDefaultsModel.swift */; };
+		CBD0F25728915E34005960D2 /* AlarmNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD0F25628915E34005960D2 /* AlarmNameViewController.swift */; };
+		CBD0F25928918E7E005960D2 /* AlarmRepeatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD0F25828918E7E005960D2 /* AlarmRepeatingViewController.swift */; };
+		CBD0F25D2891B986005960D2 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD0F25C2891B986005960D2 /* TaskManager.swift */; };
+		CBD0F25F2891B99A005960D2 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD0F25E2891B99A005960D2 /* NotificationManager.swift */; };
+		CBD0F2612891B9B1005960D2 /* TaskPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD0F2602891B9B1005960D2 /* TaskPersistenceManager.swift */; };
+		CBD0F2632891B9BF005960D2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD0F2622891B9BF005960D2 /* LocationManager.swift */; };
+		CBD0F2652891BB22005960D2 /* Taks.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD0F2642891BB22005960D2 /* Taks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +59,13 @@
 		CBB7273828906B3900621ED0 /* AlarmDetailsTableViewCellType2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailsTableViewCellType2.swift; sourceTree = "<group>"; };
 		CBB7273928906B3900621ED0 /* AlarmDetailsTableViewCellType2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmDetailsTableViewCellType2.xib; sourceTree = "<group>"; };
 		CBB7273D28907A4C00621ED0 /* UsersDefaultsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDefaultsModel.swift; sourceTree = "<group>"; };
+		CBD0F25628915E34005960D2 /* AlarmNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmNameViewController.swift; sourceTree = "<group>"; };
+		CBD0F25828918E7E005960D2 /* AlarmRepeatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmRepeatingViewController.swift; sourceTree = "<group>"; };
+		CBD0F25C2891B986005960D2 /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
+		CBD0F25E2891B99A005960D2 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		CBD0F2602891B9B1005960D2 /* TaskPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPersistenceManager.swift; sourceTree = "<group>"; };
+		CBD0F2622891B9BF005960D2 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		CBD0F2642891BB22005960D2 /* Taks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +120,10 @@
 		CB5D436A288F15C900276A4F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				CBD0F25A2891B952005960D2 /* Managers */,
 				CBB727232890381100621ED0 /* WorldClock */,
 				CB5D436B288F15DB00276A4F /* Main */,
+				CBD0F2642891BB22005960D2 /* Taks.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -122,6 +138,8 @@
 				CB5D4371288F204500276A4F /* AlarmModel.swift */,
 				CBB7272C289066AA00621ED0 /* AlarmEditViewController.swift */,
 				CBB7273D28907A4C00621ED0 /* UsersDefaultsModel.swift */,
+				CBD0F25628915E34005960D2 /* AlarmNameViewController.swift */,
+				CBD0F25828918E7E005960D2 /* AlarmRepeatingViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -155,6 +173,17 @@
 				CBB7273928906B3900621ED0 /* AlarmDetailsTableViewCellType2.xib */,
 			);
 			path = AlarmDetailsSettingsCell;
+			sourceTree = "<group>";
+		};
+		CBD0F25A2891B952005960D2 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				CBD0F25C2891B986005960D2 /* TaskManager.swift */,
+				CBD0F25E2891B99A005960D2 /* NotificationManager.swift */,
+				CBD0F2602891B9B1005960D2 /* TaskPersistenceManager.swift */,
+				CBD0F2622891B9BF005960D2 /* LocationManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,17 +262,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB5D436F288F178600276A4F /* AlarmTableViewCell.swift in Sources */,
+				CBD0F25F2891B99A005960D2 /* NotificationManager.swift in Sources */,
 				CBB727252890383700621ED0 /* WorldClockViewController.swift in Sources */,
 				CBB7272D289066AA00621ED0 /* AlarmEditViewController.swift in Sources */,
+				CBD0F25728915E34005960D2 /* AlarmNameViewController.swift in Sources */,
 				CB5D4357288F14E800276A4F /* AlarmViewController.swift in Sources */,
+				CBD0F2612891B9B1005960D2 /* TaskPersistenceManager.swift in Sources */,
 				CB5D4353288F14E800276A4F /* AppDelegate.swift in Sources */,
+				CBD0F2652891BB22005960D2 /* Taks.swift in Sources */,
 				CB5D4355288F14E800276A4F /* SceneDelegate.swift in Sources */,
 				CBB7273A28906B3900621ED0 /* AlarmDetailsTableViewCellType2.swift in Sources */,
 				CBB727272890389400621ED0 /* WorldClockModel.swift in Sources */,
 				CBB7273628906B1900621ED0 /* AlarmDetailsTableViewCellType1.swift in Sources */,
+				CBD0F25D2891B986005960D2 /* TaskManager.swift in Sources */,
 				CBB7272A2890470D00621ED0 /* WorldClockTableViewCell.swift in Sources */,
 				CB5D435D288F14E800276A4F /* alarm.xcdatamodeld in Sources */,
 				CB5D4372288F204500276A4F /* AlarmModel.swift in Sources */,
+				CBD0F25928918E7E005960D2 /* AlarmRepeatingViewController.swift in Sources */,
+				CBD0F2632891B9BF005960D2 /* LocationManager.swift in Sources */,
 				CBB7273E28907A4C00621ED0 /* UsersDefaultsModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

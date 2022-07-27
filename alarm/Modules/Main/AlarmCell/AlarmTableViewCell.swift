@@ -34,14 +34,18 @@ class AlarmTableViewCell: UITableViewCell {
     func bindView(data: SpecificAlarm){
         self.data = data
         timeLabel.text = self.data.time
+        labelAlarm.text = self.data.name
+        switchAlarm.isOn = self.data.isEnabled
+        
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Section \(section)"
     }
     
     @IBAction func switchAction(_ sender: UISwitch) {
-        data.isEnabled = sender.isOn
-        mainVC?.editAlarmByIndex(index: data.index!, alarm: data)
+        print("clicked")
+        self.data.isEnabled = sender.isOn
+        mainVC?.editAlarmByIndex(alarm: data)
     }
     
 }
