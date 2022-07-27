@@ -57,13 +57,13 @@ enum ReminderType: Int, CaseIterable, Identifiable, Codable {
 struct Reminder: Codable {
   var timeInterval: TimeInterval?
   var date: Date?
-  var location: LocationReminder?
+//  var location: LocationReminder?
   var reminderType: ReminderType = .time
   var repeats = false
 }
 
-struct LocationReminder: Codable {
-  var latitude: Double
-  var longitude: Double
-  var radius: Double
-}
+//struct LocationReminder: Codable {
+//  var latitude: Double
+//  var longitude: Double
+//  var radius: Double
+//}

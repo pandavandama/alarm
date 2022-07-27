@@ -32,7 +32,6 @@
 		CBD0F25D2891B986005960D2 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD0F25C2891B986005960D2 /* TaskManager.swift */; };
 		CBD0F25F2891B99A005960D2 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD0F25E2891B99A005960D2 /* NotificationManager.swift */; };
 		CBD0F2612891B9B1005960D2 /* TaskPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD0F2602891B9B1005960D2 /* TaskPersistenceManager.swift */; };
-		CBD0F2632891B9BF005960D2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD0F2622891B9BF005960D2 /* LocationManager.swift */; };
 		CBD0F2652891BB22005960D2 /* Taks.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD0F2642891BB22005960D2 /* Taks.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,7 +63,6 @@
 		CBD0F25C2891B986005960D2 /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
 		CBD0F25E2891B99A005960D2 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		CBD0F2602891B9B1005960D2 /* TaskPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPersistenceManager.swift; sourceTree = "<group>"; };
-		CBD0F2622891B9BF005960D2 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		CBD0F2642891BB22005960D2 /* Taks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,7 +179,6 @@
 				CBD0F25C2891B986005960D2 /* TaskManager.swift */,
 				CBD0F25E2891B99A005960D2 /* NotificationManager.swift */,
 				CBD0F2602891B9B1005960D2 /* TaskPersistenceManager.swift */,
-				CBD0F2622891B9BF005960D2 /* LocationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -279,7 +276,6 @@
 				CB5D435D288F14E800276A4F /* alarm.xcdatamodeld in Sources */,
 				CB5D4372288F204500276A4F /* AlarmModel.swift in Sources */,
 				CBD0F25928918E7E005960D2 /* AlarmRepeatingViewController.swift in Sources */,
-				CBD0F2632891B9BF005960D2 /* LocationManager.swift in Sources */,
 				CBB7273E28907A4C00621ED0 /* UsersDefaultsModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

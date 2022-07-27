@@ -39,9 +39,54 @@ class WorldClockViewController: UIViewController
         tableView.dataSource = self
         tableView.register(WorldClockTableViewCell.nib(), forCellReuseIdentifier: WorldClockTableViewCell.id)
         // Do any additional setup after loading the view.
+        test()
     }
     
-
+    
+    
+    var showNotificationSettingsUI = false
+    var reminderEnabled = false
+    var selectedTrigger = ReminderType.time
+    let timeDurations: [Int] = Array(1...59)
+    var timeDurationIndex: Int = 0
+    private var dateTrigger = Date()
+    private var shouldRepeat = false
+    var taskName: String = "test"
+    var taskManager = TaskManager.shared
+    
+    func test(){
+        NotificationManager.shared.requestAuthorization { granted in
+          // 2
+          if granted {
+          }
+        }
+        
+        
+//        taskManager.addNewTask(taskName, makeReminder())
+        for t in taskManager.tasks{
+            taskManager.remove(task: t)
+        }
+        print("spisok",taskManager.tasks)
+//        presentationMode.wrappedValue.dismiss()
+    }
+    
+    func makeReminder() -> Reminder? {
+      guard reminderEnabled else {
+        return nil
+      }
+      var reminder = Reminder()
+      reminder.reminderType = selectedTrigger
+      switch selectedTrigger {
+      case .time:
+        reminder.timeInterval = TimeInterval(timeDurations[timeDurationIndex] * 60)
+      case .calendar:
+        reminder.date = dateTrigger
+      }
+      reminder.repeats = shouldRepeat
+      return reminder
+    }
+    
+  }
     /*
     // MARK: - Navigation
 
@@ -52,4 +97,4 @@ class WorldClockViewController: UIViewController
     }
     */
 
-}
+
