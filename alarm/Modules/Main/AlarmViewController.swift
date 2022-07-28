@@ -38,7 +38,7 @@ class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         if indexPath.section == 0{
             cell.isUserInteractionEnabled = false
-            cell.bindView(data: SpecificAlarm(time: "07:00", isEnabled: false,repeating: 1,name: "Будильник(заглушка)",soundName: "1"))
+            cell.bindView(data: SpecificAlarm(date: Date.now, isEnabled: false,repeating: 1,name: "Будильник(заглушка)",soundName: "1"))
             cell.selectionStyle = .none
 
         }else{
@@ -203,7 +203,7 @@ class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         
         
-        return SpecificAlarm(time: dateFormatter.string(from: Date.now), isEnabled: false, repeating: 1, name: "Будильник", soundName: "sound name")
+        return SpecificAlarm(date: Date.now, isEnabled: false, repeating: 1, name: "Будильник", soundName: "sound name")
     }
     
     func addAlarm(){

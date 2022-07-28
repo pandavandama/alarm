@@ -83,9 +83,9 @@ class NotificationManager: ObservableObject {
     let content = UNMutableNotificationContent()
       content.sound = UNNotificationSound.init(named: UNNotificationSoundName.init(rawValue: task.reminder.soundName!))
 //      content.sound = .default
-
+      
     content.title = task.name
-    content.body = "Gentle reminder for your task!"
+      content.body = task.reminder.description!
     content.categoryIdentifier = "OrganizerPlusCategory"
     let taskData = try? JSONEncoder().encode(task)
     if let taskData = taskData {

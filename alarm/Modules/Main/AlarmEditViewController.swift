@@ -67,7 +67,7 @@ class AlarmEditViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "HH:mm"
-            innerData!.time = dateFormatter.string(from: pickerTime.date)
+        innerData!.date = pickerTime.date
             self.view.endEditing(true)
         if isNew! {
             alarmListVC!.addAlarm(alarm: innerData!)
@@ -148,13 +148,16 @@ class AlarmEditViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     func loadData(){
        
-        guard innerData?.time != nil else {
+        guard innerData?.date != nil else {
             return
         }
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat =  "HH:mm"
-        pickerTime.date = dateFormatter.date(from: innerData!.time)!
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat =  "HH:mm"
+        
+        pickerTime.date = Calendar.current.date(byAdding: .second, value: 10, to: .now)!
+//        pickerTime.date = dateFormatter.date(from: innerData!.time)!
+
         
     }
     

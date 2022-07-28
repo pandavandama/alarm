@@ -33,7 +33,9 @@ class AlarmTableViewCell: UITableViewCell {
     }
     func bindView(data: SpecificAlarm){
         self.data = data
-        timeLabel.text = self.data.time
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat =  "HH:mm"
+        timeLabel.text = dateFormatter.string(from: self.data.date)
         labelAlarm.text = self.data.name
         switchAlarm.isOn = self.data.isEnabled
         

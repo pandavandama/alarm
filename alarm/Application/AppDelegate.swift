@@ -123,6 +123,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     didReceive response: UNNotificationResponse,
     withCompletionHandler completionHandler: @escaping () -> Void
   ) {
+      print("clicked")
     // 2
     if response.actionIdentifier == "markAsDone" {
       let userInfo = response.notification.request.content.userInfo
@@ -136,4 +137,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     }
     completionHandler()
   }
+    
+    
 }

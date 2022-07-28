@@ -61,6 +61,7 @@ struct Reminder: Codable {
   var reminderType: ReminderType = .time
   var repeats = false
     var soundName: String?
+    var description: String?
 
 }
 

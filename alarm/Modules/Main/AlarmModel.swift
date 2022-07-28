@@ -8,7 +8,7 @@
 import Foundation
 
 struct SpecificAlarm: Codable{
-    var time: String
+    var date: Date
     var isEnabled: Bool
     var repeating: Int?
     var name: String
@@ -20,8 +20,8 @@ struct SpecificAlarm: Codable{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat =  "HH:mm"
         
-        print(Int(dateFormatter.date(from: time)!.timeIntervalSince1970))
+//        print(Int(dateFormatter.date(from: time)!.timeIntervalSince1970))
         
-        return dateFormatter.date(from: time)?.timeIntervalSince1970
+        return date.timeIntervalSince1970
     }
 }

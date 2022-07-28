@@ -9,15 +9,20 @@ import Foundation
 
 class UsersDefaultsModel{
     
+    static let shared = UsersDefaultsModel()
+    
     var usersDefaults = UserDefaults.standard
     
     func setAlarmClock(data: SpecificAlarm){
+        print("sha dobavit")
         var json = ""
         if usersDefaults.string(forKey: "AlarmList") != nil{
             
             var alarmList = getAlarmAllAlarmClock()
             alarmList.append(data)
             alarmList[alarmList.count-1].index = alarmList.count-1
+            UsersDefaultsModel.shared.updateNotificationList(alarmList: alarmList)
+
             print("pochemunil ",alarmList)
             let jsonData = try! JSONEncoder().encode(alarmList)
             json = String(data: jsonData, encoding: .utf8)!
@@ -27,10 +32,13 @@ class UsersDefaultsModel{
             
             alarmList.append(data)
             alarmList[0].index = 0
+            UsersDefaultsModel.shared.updateNotificationList(alarmList: alarmList)
+
             let jsonData = try! JSONEncoder().encode(alarmList)
             json = String(data: jsonData, encoding: .utf8)!
         }
         usersDefaults.set(json, forKey: "AlarmList")
+        
     }
     
     func editSpecificAlarmClock(newElement: SpecificAlarm){
@@ -44,6 +52,11 @@ class UsersDefaultsModel{
         let jsonData = try! JSONEncoder().encode(alarmList)
         json = String(data: jsonData, encoding: .utf8)!
         self.usersDefaults.set(json, forKey: "AlarmList")
+        
+        var taskInit = TaskInitiator()
+        
+        
+        
     }
     
     func getAlarmAllAlarmClock() -> [SpecificAlarm]{
@@ -71,4 +84,28 @@ class UsersDefaultsModel{
         usersDefaults.set(json, forKey: "AlarmList")
 
     }
+    func updateNotificationList(alarmList: [SpecificAlarm]){
+        var taskInitiator = TaskInitiator()
+        taskInitiator.auth()
+        
+//        var dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat =  "HH:mm"
+        
+        
+        for alarm in alarmList{
+            taskInitiator.addNewDateTask(title: alarm.name, description: "Пора вставать", soundName: "a1.aiff", date: alarm.date)
+        }
+        
+        
+        
+    }
+//        func test(){
+//
+//            dateTrigger = Calendar.current.date(byAdding: .second, value: 10, to: .now)!
+//
+//            for t in taskManager.tasks{
+//                taskManager.remove(task: t)
+//            }
+//            taskManager.addNewTask(taskName, makeReminder())
+//        }
 }
