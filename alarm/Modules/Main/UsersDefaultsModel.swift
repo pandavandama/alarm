@@ -135,13 +135,4 @@ class UsersDefaultsModel{
         
         
     }
-    //        func test(){
-    //
-    //            dateTrigger = Calendar.current.date(byAdding: .second, value: 10, to: .now)!
-    //
-    //            for t in taskManager.tasks{
-    //                taskManager.remove(task: t)
-    //            }
-    //            taskManager.addNewTask(taskName, makeReminder())
-    //        }
 }

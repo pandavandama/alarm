@@ -36,7 +36,7 @@ class AlarmTableViewCell: UITableViewCell {
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat =  "HH:mm"
         timeLabel.text = dateFormatter.string(from: self.data.date)
-        labelAlarm.text = self.data.name
+        labelAlarm.text = "\(self.data.name), \(data.shortNameDayRender(date: data))"
         switchAlarm.isOn = self.data.isEnabled
         
     }

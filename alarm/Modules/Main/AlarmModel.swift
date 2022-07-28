@@ -8,6 +8,33 @@
 import Foundation
 
 struct SpecificAlarm: Codable{
+    
+    func shortNameDayRender(date: SpecificAlarm?) -> String{
+        var stringDayListShortNames = "Никогда"
+        
+        guard let q = date else{
+            return "Никогда"
+        }
+        var innerData = date
+        innerData!.repeating! = innerData!.repeating!.sorted()
+        
+        if innerData!.repeating!.count == 1{
+            stringDayListShortNames = dayListFullNames[innerData!.repeating![0]]
+        }else
+        if innerData?.repeating?.count != 0{
+            stringDayListShortNames = ""
+            for i in innerData!.repeating!{
+                stringDayListShortNames += "\(dayListShortNames[i]) "
+            }
+        }
+        print("help")
+        print(innerData?.usaCalendarWeek())
+        return stringDayListShortNames
+    }
+    
+    var dayListShortNames: [String] = ["Пн","Вт","Ср","Чт","Пт","Сб","Вс"]
+    var dayListFullNames: [String] = ["Каждый понедельник","Каждый вторник","Каждую среду","Каждый четверг","Каждую пятницу","Каждую субботу","Каждое воскресенье"]
+    
     var date: Date
     var isEnabled: Bool
     var repeating: [Int]?
