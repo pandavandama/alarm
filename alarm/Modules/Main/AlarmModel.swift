@@ -22,10 +22,17 @@ struct SpecificAlarm: Codable{
         return date.timeIntervalSince1970
     }
     func usaCalendarWeek() -> [Int]{
-        var newArray = repeating
+        var newArray: [Int] = []
         if var repeating = repeating {
-            newArray[0]
-            
+            for i in repeating{
+                
+                var edit = i + 2
+                if edit == 8 {
+                    edit = 1
+                }
+                newArray.append(edit)
+            }
         }
+        return newArray.sorted()
     }
 }

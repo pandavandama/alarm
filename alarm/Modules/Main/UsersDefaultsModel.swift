@@ -22,7 +22,7 @@ class UsersDefaultsModel{
             alarmList.append(data)
             alarmList[alarmList.count-1].index = alarmList.count-1
             UsersDefaultsModel.shared.updateNotificationList(alarmList: alarmList)
-
+            
             print("pochemunil ",alarmList)
             let jsonData = try! JSONEncoder().encode(alarmList)
             json = String(data: jsonData, encoding: .utf8)!
@@ -33,7 +33,7 @@ class UsersDefaultsModel{
             alarmList.append(data)
             alarmList[0].index = 0
             UsersDefaultsModel.shared.updateNotificationList(alarmList: alarmList)
-
+            
             let jsonData = try! JSONEncoder().encode(alarmList)
             json = String(data: jsonData, encoding: .utf8)!
         }
@@ -49,18 +49,19 @@ class UsersDefaultsModel{
         for i in 0..<alarmList.count{
             alarmList[i].index = i
         }
+        UsersDefaultsModel.shared.updateNotificationList(alarmList: alarmList)
         let jsonData = try! JSONEncoder().encode(alarmList)
         json = String(data: jsonData, encoding: .utf8)!
         self.usersDefaults.set(json, forKey: "AlarmList")
         
-        var taskInit = TaskInitiator()
+//        var taskInit = TaskInitiator()
         
         
         
     }
     
     func getAlarmAllAlarmClock() -> [SpecificAlarm]{
-            
+        
         let string = usersDefaults.string(forKey: "AlarmList")
         
         guard string != nil else{
@@ -69,48 +70,78 @@ class UsersDefaultsModel{
         
         var alarmList = try? JSONDecoder().decode([SpecificAlarm].self, from: string!.data(using: .utf8)!)
         print("jopa2,",alarmList)
-
+        
         return alarmList!
         
     }
     func removeFromAlarmList(index: Int){
         var json = ""
-            var alarmList = getAlarmAllAlarmClock()
-
+        var alarmList = getAlarmAllAlarmClock()
+        
         alarmList.remove(at: index)
-            let jsonData = try! JSONEncoder().encode(alarmList)
-            json = String(data: jsonData, encoding: .utf8)!
-            print(alarmList)
+        let jsonData = try! JSONEncoder().encode(alarmList)
+        json = String(data: jsonData, encoding: .utf8)!
+        print(alarmList)
         usersDefaults.set(json, forKey: "AlarmList")
-
+        
     }
     func updateNotificationList(alarmList: [SpecificAlarm]){
         var taskInitiator = TaskInitiator()
         taskInitiator.auth()
         var dateComponents = DateComponents()
+        dateComponents.calendar = Calendar.current
         
-        
-//        var dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat =  "HH:mm"
-//        let date = D()
+        //        var dateFormatter = DateFormatter()
+        //        dateFormatter.dateFormat =  "HH:mm"
+        //        let date = D()
         let calendar = Calendar.current
-//        let components = calendar.components(.Hour, fromDate: date)
-//        let hour = components.hour
+        //        let components = calendar.components(.Hour, fromDate: date)
+        //        let hour = components.hour
+        
+        
+        
         for alarm in alarmList{
             print(calendar.component(.hour, from: alarm.date))
-            taskInitiator.addNewDateTask(title: alarm.name, description: "Пора вставать", soundName: "a1.aiff", date: alarm.date)
+            print("Ia hociu zjiti")
+            
+            guard alarm.isEnabled else{
+                print("otmena")
+                return
+            }
+            dateComponents.hour = calendar.component(.hour, from: alarm.date)
+            dateComponents.minute = calendar.component(.minute, from: alarm.date)
+            if alarm.repeating!.count>0{
+                
+                for i in alarm.usaCalendarWeek(){
+                    
+                    
+                    dateComponents.weekday = i
+                    
+                    
+                    taskInitiator.addNewDateTask(title: alarm.name, description: "Пора вставать", soundName: "\(alarm.soundName).aiff", date: dateComponents)
+                }
+                print(dateComponents)
+            }
+            else{
+                dateComponents.weekday = calendar.component(.weekday, from: Date.now)
+                taskInitiator.addNewDateTask(title: alarm.name, description: "Пора вставать", soundName: "\(alarm.soundName).aiff", date: dateComponents)
+                print(dateComponents)
+            }
+            
+            
+            
         }
         
         
         
     }
-//        func test(){
-//
-//            dateTrigger = Calendar.current.date(byAdding: .second, value: 10, to: .now)!
-//
-//            for t in taskManager.tasks{
-//                taskManager.remove(task: t)
-//            }
-//            taskManager.addNewTask(taskName, makeReminder())
-//        }
+    //        func test(){
+    //
+    //            dateTrigger = Calendar.current.date(byAdding: .second, value: 10, to: .now)!
+    //
+    //            for t in taskManager.tasks{
+    //                taskManager.remove(task: t)
+    //            }
+    //            taskManager.addNewTask(taskName, makeReminder())
+    //        }
 }

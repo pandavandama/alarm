@@ -38,6 +38,8 @@ class AlarmEditViewController: UIViewController,UITableViewDelegate,UITableViewD
                 stringDayListShortNames += "\(dayListShortNames[i]) "
             }
         }
+        print("help")
+        print(innerData?.usaCalendarWeek())
         return stringDayListShortNames
     }
     

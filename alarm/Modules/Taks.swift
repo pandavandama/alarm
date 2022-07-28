@@ -56,7 +56,7 @@ enum ReminderType: Int, CaseIterable, Identifiable, Codable {
 
 struct Reminder: Codable {
   var timeInterval: TimeInterval?
-  var date: Date?
+  var date: DateComponents?
 //  var location: LocationReminder?
   var reminderType: ReminderType = .time
   var repeats = false

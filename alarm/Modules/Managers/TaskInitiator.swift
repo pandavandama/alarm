@@ -13,7 +13,7 @@ class TaskInitiator{
     var selectedTrigger = ReminderType.calendar
     let timeDurations: [Int] = Array(1...59)
     var timeDurationIndex: Int = 0
-    private var dateTrigger = Date.now
+    private var dateTrigger: DateComponents?
     private var shouldRepeat = true
     var taskName: String = "test"
     var taskManager = TaskManager.shared
@@ -21,7 +21,7 @@ class TaskInitiator{
     var taskDescription = "description"
     var soundName = "a1.aiff"
     
-    func addNewDateTask(title: String, description: String, soundName: String, date: Date){
+    func addNewDateTask(title: String, description: String, soundName: String, date: DateComponents){
         taskName = title
         dateTrigger = date
         taskDescription = description
