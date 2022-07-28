@@ -86,8 +86,12 @@ class UsersDefaultsModel{
         
     }
     func updateNotificationList(alarmList: [SpecificAlarm]){
+        
         var taskInitiator = TaskInitiator()
         taskInitiator.auth()
+        
+        taskInitiator.removeAllTasks()
+        
         var dateComponents = DateComponents()
         dateComponents.calendar = Calendar.current
         
@@ -98,7 +102,7 @@ class UsersDefaultsModel{
         //        let components = calendar.components(.Hour, fromDate: date)
         //        let hour = components.hour
         
-        
+        print("ALOBLEA")
         
         for alarm in alarmList{
             print(calendar.component(.hour, from: alarm.date))
@@ -106,10 +110,12 @@ class UsersDefaultsModel{
             
             guard alarm.isEnabled else{
                 print("otmena")
-                return
+                
+                break
             }
             dateComponents.hour = calendar.component(.hour, from: alarm.date)
             dateComponents.minute = calendar.component(.minute, from: alarm.date)
+            print("iii",alarm.repeating?.count)
             if alarm.repeating!.count>0{
                 
                 for i in alarm.usaCalendarWeek(){
@@ -123,7 +129,11 @@ class UsersDefaultsModel{
                 print(dateComponents)
             }
             else{
+                print("iiii")
                 dateComponents.weekday = calendar.component(.weekday, from: Date.now)
+                dateComponents.month = calendar.component(.month,from: Date.now)
+                dateComponents.year = calendar.component(.year,from: Date.now)
+
                 taskInitiator.addNewDateTask(title: alarm.name, description: "Пора вставать", soundName: "\(alarm.soundName).aiff", date: dateComponents)
                 print(dateComponents)
             }

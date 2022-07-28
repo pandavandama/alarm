@@ -17,6 +17,7 @@ class AlarmEditViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
+        deleteButton.isEnabled = !isNew!
 
     }
     
@@ -72,7 +73,7 @@ class AlarmEditViewController: UIViewController,UITableViewDelegate,UITableViewD
     var innerData: SpecificAlarm?
     var alarmListVC: AlarmViewController?
     var actionsNamesList: [String] = ["Повтор","Название","Мелодия","Повторение сигнала"]
-    var indexPath: IndexPath?
+//    var indexPath: IndexPath?
     var isNew: Bool?
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var pickerTime: UIDatePicker!
@@ -96,7 +97,8 @@ class AlarmEditViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     @IBAction func deleteAction(_ sender: UIButton) {
-        alarmListVC?.deleteCellFromTable(indexPath: self.indexPath!)
+        alarmListVC?.deleteCellFromTable(index: innerData!.index!)
+        self.dismiss(animated: true)
     }
     
     override func viewWillLayoutSubviews() {

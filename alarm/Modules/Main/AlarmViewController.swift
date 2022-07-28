@@ -117,6 +117,11 @@ class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return true
     }
     
+    func deleteCellFromTable(index: Int){
+        UsersDefaultsModel().removeFromAlarmList(index: index)
+        dataInit()
+        tableView.reloadData()
+    }
     func deleteCellFromTable(indexPath: IndexPath){
         UsersDefaultsModel().removeFromAlarmList(index: indexPath.row)
         dataInit()
@@ -196,7 +201,7 @@ class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func makeDefaultAlarm() -> SpecificAlarm{
         var dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
-        return SpecificAlarm(date: Date.now, isEnabled: false, repeating: [1], name: "Будильник", soundName: "a1")
+        return SpecificAlarm(date: Date.now, isEnabled: true, repeating: [], name: "Будильник", soundName: "a1")
     }
     
     func addAlarm(){

@@ -26,12 +26,13 @@ class TaskInitiator{
         dateTrigger = date
         taskDescription = description
         self.soundName = soundName
-        
+        print("sushestvuet ",taskManager.tasks)
         //            dateTrigger = Calendar.current.date(byAdding: .second, value: 10, to: .now)!
         
         
         taskManager.addNewTask(taskName, makeReminder())
     }
+    
     
     func removeAllTasks(){
         for t in taskManager.tasks{
