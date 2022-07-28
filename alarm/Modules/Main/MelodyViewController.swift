@@ -59,9 +59,7 @@ class MelodyViewController: UIViewController,UITableViewDelegate,UITableViewData
                print(error.localizedDescription)
            }
     }
-    func playMusic(bool: Bool){
-        
-    }
+
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
