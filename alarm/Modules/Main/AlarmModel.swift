@@ -9,26 +9,22 @@ import Foundation
 
 struct SpecificAlarm: Codable{
     
-    func shortNameDayRender(date: SpecificAlarm?) -> String{
+    func shortNameDayRender() -> String{
+        let date = self
         var stringDayListShortNames = "Никогда"
-        
-        guard let q = date else{
-            return "Никогда"
-        }
+
         var innerData = date
-        innerData!.repeating! = innerData!.repeating!.sorted()
+        innerData.repeating! = innerData.repeating!.sorted()
         
-        if innerData!.repeating!.count == 1{
-            stringDayListShortNames = dayListFullNames[innerData!.repeating![0]]
+        if innerData.repeating!.count == 1{
+            stringDayListShortNames = dayListFullNames[innerData.repeating![0]]
         }else
-        if innerData?.repeating?.count != 0{
+        if innerData.repeating?.count != 0{
             stringDayListShortNames = ""
-            for i in innerData!.repeating!{
+            for i in innerData.repeating!{
                 stringDayListShortNames += "\(dayListShortNames[i]) "
             }
         }
-        print("help")
-        print(innerData?.usaCalendarWeek())
         return stringDayListShortNames
     }
     
@@ -41,7 +37,7 @@ struct SpecificAlarm: Codable{
     var name: String
     var soundName: String
     var index: Int?
-//    var isNeedToRepeat: Bool?
+    var isNeedToRepeat: Bool?
     
     func timestamp()->TimeInterval?{
         let dateFormatter = DateFormatter()
@@ -52,7 +48,6 @@ struct SpecificAlarm: Codable{
         var newArray: [Int] = []
         if var repeating = repeating {
             for i in repeating{
-                
                 var edit = i + 2
                 if edit == 8 {
                     edit = 1

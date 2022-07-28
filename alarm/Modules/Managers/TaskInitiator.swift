@@ -25,7 +25,9 @@ class TaskInitiator{
         taskName = title
         dateTrigger = date
         taskDescription = description
+//        self.soundName = soundName
         self.soundName = soundName
+        print("test ",soundName,self.soundName)
         print("sushestvuet ",taskManager.tasks)
         //            dateTrigger = Calendar.current.date(byAdding: .second, value: 10, to: .now)!
         
@@ -44,7 +46,7 @@ class TaskInitiator{
             return nil
         }
         var reminder = Reminder()
-        reminder.soundName = "a1.caf"
+        reminder.soundName = soundName
         reminder.reminderType = selectedTrigger
         reminder.description = taskDescription
         switch selectedTrigger {

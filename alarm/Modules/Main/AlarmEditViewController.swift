@@ -8,40 +8,14 @@
 import UIKit
 
 class AlarmEditViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-    var dayListShortNames: [String] = ["Пн","Вт","Ср","Чт","Пт","Сб","Вс"]
-    var dayListFullNames: [String] = ["Каждый понедельник","Каждый вторник","Каждую среду","Каждый четверг","Каждую пятницу","Каждую субботу","Каждое воскресенье"]
     var dayListShortNamesOutput: [String] = []
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         4
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
         deleteButton.isEnabled = !isNew!
 
-    }
-    
-    func shortNameDayRender() -> String{
-        var stringDayListShortNames = "Никогда"
-        
-        guard let q = innerData else{
-            return "Никогда"
-        }
-        
-        innerData!.repeating! = innerData!.repeating!.sorted()
-        
-        if innerData!.repeating!.count == 1{
-            stringDayListShortNames = dayListFullNames[innerData!.repeating![0]]
-        }else
-        if innerData?.repeating?.count != 0{
-            stringDayListShortNames = ""
-            for i in innerData!.repeating!{
-                stringDayListShortNames += "\(dayListShortNames[i]) "
-            }
-        }
-        print("help")
-        print(innerData?.usaCalendarWeek())
-        return stringDayListShortNames
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -55,7 +29,7 @@ class AlarmEditViewController: UIViewController,UITableViewDelegate,UITableViewD
             
             
             switch indexPath.row{
-            case 0: cell.labelValue.text = shortNameDayRender()
+            case 0: cell.labelValue.text = innerData?.shortNameDayRender()
             case 1: cell.labelValue.text = innerData?.name
             case 2: cell.labelValue.text = innerData?.soundName
             default: print("default")
@@ -66,6 +40,7 @@ class AlarmEditViewController: UIViewController,UITableViewDelegate,UITableViewD
             let cell = tableView.dequeueReusableCell(withIdentifier: AlarmDetailsTableViewCellType2.id, for: indexPath) as! AlarmDetailsTableViewCellType2
             cell.AlarmSettingsVC = self
             cell.labelName.text = actionsNamesList[indexPath.row]
+            cell.switchElement.isOn = innerData!.isNeedToRepeat!
             return cell
         }
     }
@@ -73,7 +48,6 @@ class AlarmEditViewController: UIViewController,UITableViewDelegate,UITableViewD
     var innerData: SpecificAlarm?
     var alarmListVC: AlarmViewController?
     var actionsNamesList: [String] = ["Повтор","Название","Мелодия","Повторение сигнала"]
-//    var indexPath: IndexPath?
     var isNew: Bool?
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var pickerTime: UIDatePicker!
@@ -183,7 +157,6 @@ class AlarmEditViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         configure()
     }
-    
     func setData(data: SpecificAlarm){
         innerData = data
     }

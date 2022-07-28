@@ -9,7 +9,7 @@ import UIKit
 
 class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
+    //Variables
     @IBOutlet weak var plusTabButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var editTabButton: UIBarButtonItem!
@@ -17,19 +17,35 @@ class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var dataList: [SpecificAlarm] = []
     var labelBigTitle: UILabel?
     
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        2
+    //CycleVCMethods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        dataInit()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.tableHeaderView = makeHeaderTable(title: "Будильник")
+        tableView.register(AlarmTableViewCell.nib(), forCellReuseIdentifier: AlarmTableViewCell.id)
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.clear]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
     
+    //Actions
+    @IBAction func addAlarmButtonClick(_ sender: UIBarButtonItem) {
+        addAlarm()
+    }
+    
+    @IBAction func editAlarmButtonClick(_ sender: UIBarButtonItem) {
+        editAlarm()
+    }
+    //tableViewMethods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(section)
         if section == 0{
             return 1
         }else{
             return dataList.count
         }
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -38,18 +54,17 @@ class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         if indexPath.section == 0{
             cell.isUserInteractionEnabled = false
-            cell.bindView(data: SpecificAlarm(date: Date.now, isEnabled: false,repeating: [1],name: "Будильник(заглушка)",soundName: "1"))
+            cell.bindView(data: SpecificAlarm(date: Date.now, isEnabled: false,repeating: [],name: "Будильник(заглушка)",soundName: "1"))
             cell.selectionStyle = .none
-
         }else{
             cell.isUserInteractionEnabled = true
-            print("render", dataList[indexPath.row])
             cell.bindView(data: dataList[indexPath.row])
             cell.mainVC = self
             
             let backgroundView = UIView()
             backgroundView.backgroundColor = .darkGray
             cell.selectedBackgroundView = backgroundView
+            
         }
         
         return cell
@@ -83,12 +98,46 @@ class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let headerView = UIView()
         headerView.backgroundColor = UIColor.clear
         headerView.addSubview(label)
-        
         label.leftAnchor.constraint(equalTo: headerView.leftAnchor).isActive = true
-        
         return headerView
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        openAlarmDetails(indexPath: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+    }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .normal, title: "Delete"){ [weak self] (action,view,handler) in
+            self!.deleteCellFromTable(indexPath: indexPath)
+            
+        }
+        delete.backgroundColor = .red
+        return UISwipeActionsConfiguration(actions: [delete])
+        
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if indexPath.section == 0{
+            return false
+        }
+        return true
+    }
+    //ScrollViewMethos
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        labelBigTitle?.font = .boldSystemFont(ofSize: 30+(-scrollView.contentOffset.y/50))
+        if scrollView.contentOffset.y > 40 && labelBigTitle?.textColor != .clear{
+            labelBigTitle?.textColor = .clear
+            let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+            navigationController?.navigationBar.titleTextAttributes = textAttributes
+        }else if scrollView.contentOffset.y < 40 && labelBigTitle?.textColor == .clear{
+            labelBigTitle?.textColor = .white
+            let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.clear]
+            navigationController?.navigationBar.titleTextAttributes = textAttributes
+        }
+    }
+    //Other methods
     func addAlarm(alarm: SpecificAlarm){
         UsersDefaultsModel().setAlarmClock(data: alarm)
         self.dataInit()
@@ -96,26 +145,15 @@ class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func editAlarmByIndex(alarm: SpecificAlarm){
-            UsersDefaultsModel().editSpecificAlarmClock(newElement: alarm)
-            self.dataInit()
-            self.tableView.reloadData()
-        
+        UsersDefaultsModel().editSpecificAlarmClock(newElement: alarm)
+        self.dataInit()
+        self.tableView.reloadData()
     }
-    
-    
     
     func dataInit(){
         dataList = UsersDefaultsModel().getAlarmAllAlarmClock()
-        print("START WITH ", dataList)
-
-
     }
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        if indexPath.section == 0{
-            return false
-        }
-        return true
-    }
+    
     
     func deleteCellFromTable(index: Int){
         UsersDefaultsModel().removeFromAlarmList(index: index)
@@ -142,39 +180,10 @@ class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDat
         myVC.setData(data: makeDefaultAlarm())
         myVC.isNew = true
         let navController = UINavigationController(rootViewController: myVC)
+        myVC.navigationItem.title = "Добавить"
         self.navigationController?.present(navController, animated: true, completion: nil)
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        openAlarmDetails(indexPath: indexPath)
-        tableView.deselectRow(at: indexPath, animated: true)
-
-    }
-    
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let delete = UIContextualAction(style: .normal, title: "Delete"){ [weak self] (action,view,handler) in
-            self!.deleteCellFromTable(indexPath: indexPath)
-            
-        }
-        delete.backgroundColor = .red
-        return UISwipeActionsConfiguration(actions: [delete])
-        
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-       
-        dataInit()
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.tableHeaderView = makeHeaderTable(title: "Будильник")
-        tableView.register(AlarmTableViewCell.nib(), forCellReuseIdentifier: AlarmTableViewCell.id)
-        }
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        labelBigTitle?.font = .boldSystemFont(ofSize: 30+(-scrollView.contentOffset.y/50))
-    }
     func makeHeaderTable(title: String) -> UIView{
         let header = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
         
@@ -189,29 +198,23 @@ class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return header
     }
     
-    
-    @IBAction func addAlarmButtonClick(_ sender: UIBarButtonItem) {
-        addAlarm()
-    }
-    
-    @IBAction func editAlarmButtonClick(_ sender: UIBarButtonItem) {
-        editAlarm()
-    }
-    
     func makeDefaultAlarm() -> SpecificAlarm{
         var dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
-        return SpecificAlarm(date: Date.now, isEnabled: true, repeating: [], name: "Будильник", soundName: "a1")
+        return SpecificAlarm(date: Date.now, isEnabled: true, repeating: [], name: "Будильник", soundName: "a1",isNeedToRepeat: false)
     }
     
     func addAlarm(){
         openAlarmDetails()
-        print("Add alarm")
-    }
-    func editAlarm(){
-        print("Edit alarm")
     }
     
+    func editAlarm(){
+        tableView.setEditing(!tableView.isEditing, animated: true)
+        editTabButton.title = tableView.isEditing ? "Готово" : "Править"
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        2
+    }
 }
 
 extension UILabel {

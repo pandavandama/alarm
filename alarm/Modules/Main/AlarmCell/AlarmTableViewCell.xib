@@ -26,7 +26,7 @@
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MD3-ZC-5Cv">
-                                <rect key="frame" x="0.0" y="-0.5" width="130" height="61"/>
+                                <rect key="frame" x="5" y="-0.5" width="130" height="61"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="51"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -34,7 +34,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="MD3-ZC-5Cv" firstAttribute="leading" secondItem="RCV-64-ZWM" secondAttribute="leading" id="H7K-DZ-3cM"/>
+                            <constraint firstItem="MD3-ZC-5Cv" firstAttribute="leading" secondItem="RCV-64-ZWM" secondAttribute="leading" constant="5" id="H7K-DZ-3cM"/>
                             <constraint firstItem="LN0-85-HfD" firstAttribute="centerY" secondItem="RCV-64-ZWM" secondAttribute="centerY" id="LNz-dV-dlH"/>
                             <constraint firstItem="MD3-ZC-5Cv" firstAttribute="centerY" secondItem="RCV-64-ZWM" secondAttribute="centerY" id="Wnu-UH-kxh"/>
                             <constraint firstAttribute="height" constant="60" id="lEf-H8-kk2"/>
@@ -42,7 +42,8 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Будильник" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvT-TF-jcx">
-                        <rect key="frame" x="0.0" y="60" width="301" height="17"/>
+                        <rect key="frame" x="5" y="60" width="296" height="17"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -50,7 +51,7 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="VvT-TF-jcx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="5FI-ts-qJs"/>
+                    <constraint firstItem="VvT-TF-jcx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="5FI-ts-qJs"/>
                     <constraint firstItem="RCV-64-ZWM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="LHY-Ov-HEa"/>
                     <constraint firstItem="VvT-TF-jcx" firstAttribute="top" secondItem="RCV-64-ZWM" secondAttribute="bottom" id="Prx-qa-anM"/>
                     <constraint firstAttribute="bottom" secondItem="VvT-TF-jcx" secondAttribute="bottom" constant="10" id="TIK-6Y-ZIy"/>

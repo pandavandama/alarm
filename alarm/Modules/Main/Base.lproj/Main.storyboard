@@ -69,7 +69,7 @@
                             </datePicker>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="u5M-jA-TPG">
                                 <rect key="frame" x="35" y="282" width="344" height="280"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.18020431619999999" green="0.18020431619999999" blue="0.18020431619999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="280" id="CWQ-9C-92K"/>
                                 </constraints>
@@ -77,7 +77,7 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CFj-TC-wfS">
                                 <rect key="frame" x="35" y="592" width="344" height="50"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.18020431620558508" green="0.18020431620558508" blue="0.18020431620558508" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="QRj-44-FVI"/>
                                 </constraints>
@@ -90,7 +90,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EkR-hm-n0N"/>
-                        <color key="backgroundColor" red="0.1647058874" green="0.1647058874" blue="0.1647058874" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.1145891026061856" green="0.1145891026061856" blue="0.1145891026061856" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="EkR-hm-n0N" firstAttribute="bottom" secondItem="CFj-TC-wfS" secondAttribute="bottom" constant="200" id="64Z-ZD-AY9"/>
                             <constraint firstItem="Qqm-fK-0Xe" firstAttribute="leading" secondItem="EkR-hm-n0N" secondAttribute="leading" constant="35" id="AaF-69-4g3"/>
@@ -266,9 +266,10 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" systemColor="systemOrangeColor"/>
+                        <color key="barTintColor" systemColor="systemGray6Color"/>
                         <color key="selectedImageTintColor" systemColor="systemOrangeColor"/>
                         <tabBarAppearance key="standardAppearance">
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.08180976159793818" green="0.08180976159793818" blue="0.08180976159793818" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </tabBarAppearance>
                     </tabBar>
                     <connections>
@@ -564,6 +565,9 @@
         <image name="timer" catalog="system" width="32" height="32"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

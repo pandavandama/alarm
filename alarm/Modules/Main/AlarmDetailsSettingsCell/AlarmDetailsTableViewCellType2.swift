@@ -20,8 +20,9 @@ class AlarmDetailsTableViewCellType2: UITableViewCell {
     
     @IBOutlet weak var labelName: UILabel!
     
+    @IBOutlet weak var switchElement: UISwitch!
     @IBAction func switchChange(_ sender: UISwitch) {
-        AlarmSettingsVC?.innerData?.isEnabled = sender.isOn
+        AlarmSettingsVC?.innerData?.isNeedToRepeat = sender.isOn
     }
     
     override func awakeFromNib() {

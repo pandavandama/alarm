@@ -29,7 +29,7 @@ class AlarmRepeatingViewController: UIViewController,UITableViewDelegate,UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! UITableViewCell
-        cell.textLabel?.text = alarmEditVC?.dayListFullNames[indexPath.row]
+        cell.textLabel?.text = alarmEditVC?.innerData?.dayListFullNames[indexPath.row]
         cell.textLabel?.textColor = .white
         for i in arrayCheckedInt{
             if i == indexPath.row{
@@ -66,7 +66,7 @@ class AlarmRepeatingViewController: UIViewController,UITableViewDelegate,UITable
         
         var namedArray: [String] = []
         for i in arrayCheckedInt{
-            namedArray.append(alarmEditVC!.dayListShortNames[i])
+            namedArray.append(alarmEditVC!.innerData!.dayListShortNames[i])
         }
         alarmEditVC?.dayListShortNamesOutput = namedArray
         alarmEditVC?.innerData?.repeating = arrayCheckedInt
