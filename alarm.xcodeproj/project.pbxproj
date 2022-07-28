@@ -28,6 +28,7 @@
 		CBB7273B28906B3900621ED0 /* AlarmDetailsTableViewCellType2.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBB7273928906B3900621ED0 /* AlarmDetailsTableViewCellType2.xib */; };
 		CBB7273E28907A4C00621ED0 /* UsersDefaultsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7273D28907A4C00621ED0 /* UsersDefaultsModel.swift */; };
 		CBC4AC672892594F00784294 /* TaskInitiator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC4AC662892594F00784294 /* TaskInitiator.swift */; };
+		CBC4AC692892BE1600784294 /* MelodyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC4AC682892BE1600784294 /* MelodyViewController.swift */; };
 		CBD0F25728915E34005960D2 /* AlarmNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD0F25628915E34005960D2 /* AlarmNameViewController.swift */; };
 		CBD0F25928918E7E005960D2 /* AlarmRepeatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD0F25828918E7E005960D2 /* AlarmRepeatingViewController.swift */; };
 		CBD0F25D2891B986005960D2 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD0F25C2891B986005960D2 /* TaskManager.swift */; };
@@ -66,6 +67,7 @@
 		CBB7273928906B3900621ED0 /* AlarmDetailsTableViewCellType2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmDetailsTableViewCellType2.xib; sourceTree = "<group>"; };
 		CBB7273D28907A4C00621ED0 /* UsersDefaultsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDefaultsModel.swift; sourceTree = "<group>"; };
 		CBC4AC662892594F00784294 /* TaskInitiator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskInitiator.swift; sourceTree = "<group>"; };
+		CBC4AC682892BE1600784294 /* MelodyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MelodyViewController.swift; sourceTree = "<group>"; };
 		CBD0F25628915E34005960D2 /* AlarmNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmNameViewController.swift; sourceTree = "<group>"; };
 		CBD0F25828918E7E005960D2 /* AlarmRepeatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmRepeatingViewController.swift; sourceTree = "<group>"; };
 		CBD0F25C2891B986005960D2 /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				CBB7273D28907A4C00621ED0 /* UsersDefaultsModel.swift */,
 				CBD0F25628915E34005960D2 /* AlarmNameViewController.swift */,
 				CBD0F25828918E7E005960D2 /* AlarmRepeatingViewController.swift */,
+				CBC4AC682892BE1600784294 /* MelodyViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				CBD0F2652891BB22005960D2 /* Taks.swift in Sources */,
 				CB5D4355288F14E800276A4F /* SceneDelegate.swift in Sources */,
 				CBB7273A28906B3900621ED0 /* AlarmDetailsTableViewCellType2.swift in Sources */,
+				CBC4AC692892BE1600784294 /* MelodyViewController.swift in Sources */,
 				CBB727272890389400621ED0 /* WorldClockModel.swift in Sources */,
 				CBB7273628906B1900621ED0 /* AlarmDetailsTableViewCellType1.swift in Sources */,
 				CBD0F25D2891B986005960D2 /* TaskManager.swift in Sources */,

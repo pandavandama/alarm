@@ -38,7 +38,7 @@ class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         if indexPath.section == 0{
             cell.isUserInteractionEnabled = false
-            cell.bindView(data: SpecificAlarm(date: Date.now, isEnabled: false,repeating: 1,name: "Будильник(заглушка)",soundName: "1"))
+            cell.bindView(data: SpecificAlarm(date: Date.now, isEnabled: false,repeating: [1],name: "Будильник(заглушка)",soundName: "1"))
             cell.selectionStyle = .none
 
         }else{
@@ -49,7 +49,7 @@ class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             let backgroundView = UIView()
             backgroundView.backgroundColor = .darkGray
-                cell.selectedBackgroundView = backgroundView
+            cell.selectedBackgroundView = backgroundView
         }
         
         return cell
@@ -166,9 +166,7 @@ class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.dataSource = self
         tableView.tableHeaderView = makeHeaderTable(title: "Будильник")
         tableView.register(AlarmTableViewCell.nib(), forCellReuseIdentifier: AlarmTableViewCell.id)
-        
-//        tableView.reloadData()
-    }
+        }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         labelBigTitle?.font = .boldSystemFont(ofSize: 30+(-scrollView.contentOffset.y/50))
     }
@@ -196,18 +194,12 @@ class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func makeDefaultAlarm() -> SpecificAlarm{
-        
         var dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
-        
-        
-        
-        
-        return SpecificAlarm(date: Date.now, isEnabled: false, repeating: 1, name: "Будильник", soundName: "sound name")
+        return SpecificAlarm(date: Date.now, isEnabled: false, repeating: [1], name: "Будильник", soundName: "a1")
     }
     
     func addAlarm(){
-        
         openAlarmDetails()
         print("Add alarm")
     }

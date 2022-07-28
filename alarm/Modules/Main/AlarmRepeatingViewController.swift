@@ -10,15 +10,17 @@ import UIKit
 class AlarmRepeatingViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     
-    
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
-    
-    var innerData: SpecificAlarm?
     var alarmEditVC: AlarmEditViewController?
-    var checked = [Bool](repeating: false, count: 7)
+    
+    
+    
+   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         7
     }
+    var arrayCheckedInt: [Int] = []
     
     override func viewWillLayoutSubviews() {
         super.updateViewConstraints()
@@ -27,30 +29,48 @@ class AlarmRepeatingViewController: UIViewController,UITableViewDelegate,UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! UITableViewCell
-        cell.textLabel?.text = "privet"
-        cell.accessoryType = .none
+        cell.textLabel?.text = alarmEditVC?.dayListFullNames[indexPath.row]
+        cell.textLabel?.textColor = .white
+        for i in arrayCheckedInt{
+            if i == indexPath.row{
+                cell.accessoryType = .checkmark
+            }
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let cell = tableView.cellForRow(at: indexPath)
-        
-        if checked[indexPath.row]{
+        arrayCheckedInt = arrayCheckedInt.uniqued()
+        var isChecked = false
+        for i in arrayCheckedInt{
+            if i == indexPath.row{
+                isChecked = true
+                break
+            }else{
+                isChecked = false
+            }
+        }
+        if isChecked{
             cell!.accessoryType = .none
-            checked[indexPath.row] = false
+            arrayCheckedInt.removeAll(where: {
+                $0 == indexPath.row
+            })
         }else{
             cell!.accessoryType = .checkmark
-            checked[indexPath.row] = true
-
+            arrayCheckedInt.append(indexPath.row)
         }
         tableView.deselectRow(at: indexPath, animated: true)
-
+        
+        arrayCheckedInt = arrayCheckedInt.sorted()
+        
+        var namedArray: [String] = []
+        for i in arrayCheckedInt{
+            namedArray.append(alarmEditVC!.dayListShortNames[i])
+        }
+        alarmEditVC?.dayListShortNamesOutput = namedArray
+        alarmEditVC?.innerData?.repeating = arrayCheckedInt
     }
-    
-    
-    @IBOutlet weak var tableView: UITableView!
-    
     
     
     override func viewDidLoad() {
@@ -58,28 +78,16 @@ class AlarmRepeatingViewController: UIViewController,UITableViewDelegate,UITable
         tableView.delegate = self
         tableView.dataSource = self
         tableView.layer.cornerRadius = 10.0
-
+        
         tableView.tableHeaderView = UIView()
         
-//        let footerView = UIView()
-//            footerView.translatesAutoresizingMaskIntoConstraints = false
-//            footerView.heightAnchor.constraint(equalToConstant: 9).isActive = true
-//
-//            tableView.tableFooterView = footerView
-
-
-        // Do any additional setup after loading the view.
+        arrayCheckedInt = alarmEditVC!.innerData!.repeating!
+        arrayCheckedInt = arrayCheckedInt.uniqued()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+}
+public extension Array where Element: Hashable {
+    func uniqued() -> [Element] {
+        var seen = Set<Element>()
+        return filter{ seen.insert($0).inserted }
     }
-    */
-
 }

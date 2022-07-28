@@ -8,13 +8,37 @@
 import UIKit
 
 class AlarmEditViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-    
-    
-    
-    
-    
+    var dayListShortNames: [String] = ["Пн","Вт","Ср","Чт","Пт","Сб","Вс"]
+    var dayListFullNames: [String] = ["Каждый понедельник","Каждый вторник","Каждую среду","Каждый четверг","Каждую пятницу","Каждую субботу","Каждое воскресенье"]
+    var dayListShortNamesOutput: [String] = []
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         4
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+
+    }
+    
+    func shortNameDayRender() -> String{
+        var stringDayListShortNames = "Никогда"
+        
+        guard let q = innerData else{
+            return "Никогда"
+        }
+        
+        innerData!.repeating! = innerData!.repeating!.sorted()
+        
+        if innerData!.repeating!.count == 1{
+            stringDayListShortNames = dayListFullNames[innerData!.repeating![0]]
+        }else
+        if innerData?.repeating?.count != 0{
+            stringDayListShortNames = ""
+            for i in innerData!.repeating!{
+                stringDayListShortNames += "\(dayListShortNames[i]) "
+            }
+        }
+        return stringDayListShortNames
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -23,15 +47,17 @@ class AlarmEditViewController: UIViewController,UITableViewDelegate,UITableViewD
             let cell = tableView.dequeueReusableCell(withIdentifier: AlarmDetailsTableViewCellType1.id, for: indexPath) as! AlarmDetailsTableViewCellType1
             cell.labelName.text = actionsNamesList[indexPath.row]
             
+            
+            
+            
+            
             switch indexPath.row{
-            case 0: cell.labelValue.text = String("soon")
+            case 0: cell.labelValue.text = shortNameDayRender()
             case 1: cell.labelValue.text = innerData?.name
             case 2: cell.labelValue.text = innerData?.soundName
             default: print("default")
             }
-            
             return cell
-            
         }
         else{
             let cell = tableView.dequeueReusableCell(withIdentifier: AlarmDetailsTableViewCellType2.id, for: indexPath) as! AlarmDetailsTableViewCellType2
@@ -39,44 +65,31 @@ class AlarmEditViewController: UIViewController,UITableViewDelegate,UITableViewD
             cell.labelName.text = actionsNamesList[indexPath.row]
             return cell
         }
-        
-        
     }
+    
     var innerData: SpecificAlarm?
     var alarmListVC: AlarmViewController?
     var actionsNamesList: [String] = ["Повтор","Название","Мелодия","Повторение сигнала"]
     var indexPath: IndexPath?
     var isNew: Bool?
     @IBOutlet weak var deleteButton: UIButton!
-    
     @IBOutlet weak var pickerTime: UIDatePicker!
-    
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
-    
     @IBOutlet weak var tableView: UITableView!
-    
-    
-    
     @IBAction func backAction(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true)
     }
-    
     @IBAction func saveAction(_ sender: UIBarButtonItem) {
-        
-        
-        
         let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.dateFormat = "HH:mm"
         innerData!.date = pickerTime.date
-            self.view.endEditing(true)
+        self.view.endEditing(true)
         if isNew! {
             alarmListVC!.addAlarm(alarm: innerData!)
-
+            
         }else{
             alarmListVC!.editAlarmByIndex( alarm: innerData!)
-
         }
-        
         dismiss(animated: true)
     }
     
@@ -88,13 +101,22 @@ class AlarmEditViewController: UIViewController,UITableViewDelegate,UITableViewD
         super.updateViewConstraints()
         self.tableViewHeight?.constant = tableView.contentSize.height
     }
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         self.viewWillLayoutSubviews()
     }
     
+    func openMelodyPopup(){
+        guard let nameVC = self.storyboard?.instantiateViewController(withIdentifier: "AlarmMusicView") as? MelodyViewController else { return }
+        nameVC.alarmEditVC = self
+        self.navigationController?.navigationBar.topItem?.backButtonTitle = "Назад"
+        self.navigationController?.navigationBar.tintColor = .systemOrange
+        self.navigationController?.pushViewController(nameVC, animated: true)
+    }
+    
     func openNamePopup(){
         guard let nameVC = self.storyboard?.instantiateViewController(withIdentifier: "AlarmNameView") as? AlarmNameViewController else { return }
-
+        
         nameVC.alarmEditVC = self
         self.navigationController?.navigationBar.topItem?.backButtonTitle = "Назад"
         self.navigationController?.navigationBar.tintColor = .systemOrange
@@ -103,43 +125,29 @@ class AlarmEditViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     func openRepeatingPopup(){
         guard let nameVC = self.storyboard?.instantiateViewController(withIdentifier: "AlarmRepeatingView") as? AlarmRepeatingViewController else { return }
-
-        nameVC.innerData = innerData
         nameVC.alarmEditVC = self
         self.navigationController?.navigationBar.topItem?.backButtonTitle = "Назад"
         self.navigationController?.navigationBar.tintColor = .systemOrange
         self.navigationController?.pushViewController(nameVC, animated: true)
-        
     }
     
     func actionByIndex(index: Int){
-        
         switch index{
-        case 0: print("0")
-            openRepeatingPopup()
-        case 1: print("1")
-            openNamePopup()
-        case 2: print("2")
-        case 3: print("3")
+        case 0: openRepeatingPopup()
+        case 1: openNamePopup()
+        case 2: openMelodyPopup()
         default: print("default")
-            
         }
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         actionByIndex(index: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
-
     }
-
     
     func configure(){
         pickerTime.locale = Locale.init(identifier: "en_GB")
         pickerTime.setValue(UIColor.white, forKeyPath: "textColor")
-        
-       
         
         deleteButton.layer.cornerRadius = 10.0
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
@@ -147,41 +155,32 @@ class AlarmEditViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     func loadData(){
-       
         guard innerData?.date != nil else {
             return
         }
-        
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat =  "HH:mm"
-        
-        pickerTime.date = Calendar.current.date(byAdding: .second, value: 10, to: .now)!
-//        pickerTime.date = dateFormatter.date(from: innerData!.time)!
-
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-
+        
         tableView.register(AlarmDetailsTableViewCellType1.nib(), forCellReuseIdentifier: AlarmDetailsTableViewCellType1.id)
         tableView.register(AlarmDetailsTableViewCellType2.nib(), forCellReuseIdentifier: AlarmDetailsTableViewCellType2.id)
         
         tableView.layer.cornerRadius = 10.0
-
+        
         if innerData != nil{
             loadData()
-
+            
         }
+        
+        pickerTime.date = innerData!.date
+        
         configure()
-
     }
     
     func setData(data: SpecificAlarm){
         innerData = data
     }
-
-
 }

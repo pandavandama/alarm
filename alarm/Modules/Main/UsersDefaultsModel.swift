@@ -87,12 +87,17 @@ class UsersDefaultsModel{
     func updateNotificationList(alarmList: [SpecificAlarm]){
         var taskInitiator = TaskInitiator()
         taskInitiator.auth()
+        var dateComponents = DateComponents()
+        
         
 //        var dateFormatter = DateFormatter()
 //        dateFormatter.dateFormat =  "HH:mm"
-        
-        
+//        let date = D()
+        let calendar = Calendar.current
+//        let components = calendar.components(.Hour, fromDate: date)
+//        let hour = components.hour
         for alarm in alarmList{
+            print(calendar.component(.hour, from: alarm.date))
             taskInitiator.addNewDateTask(title: alarm.name, description: "Пора вставать", soundName: "a1.aiff", date: alarm.date)
         }
         

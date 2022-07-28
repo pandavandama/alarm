@@ -10,7 +10,7 @@ import Foundation
 struct SpecificAlarm: Codable{
     var date: Date
     var isEnabled: Bool
-    var repeating: Int?
+    var repeating: [Int]?
     var name: String
     var soundName: String
     var index: Int?
@@ -19,9 +19,13 @@ struct SpecificAlarm: Codable{
     func timestamp()->TimeInterval?{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat =  "HH:mm"
-        
-//        print(Int(dateFormatter.date(from: time)!.timeIntervalSince1970))
-        
         return date.timeIntervalSince1970
+    }
+    func usaCalendarWeek() -> [Int]{
+        var newArray = repeating
+        if var repeating = repeating {
+            newArray[0]
+            
+        }
     }
 }
