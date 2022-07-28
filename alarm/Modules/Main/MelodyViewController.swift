@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class MelodyViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
@@ -36,7 +37,28 @@ class MelodyViewController: UIViewController,UITableViewDelegate,UITableViewData
         cell.textLabel?.textColor = .white
         return cell
     }
-    
+    var player: AVAudioPlayer?
+
+    func playSound(bool: Bool,soundName: String) {
+        guard let url = Bundle.main.url(forResource: soundName, withExtension: "caf") else { return }
+        do {
+               try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+               try AVAudioSession.sharedInstance().setActive(bool)
+
+               /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
+               player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+
+               /* iOS 10 and earlier require the following line:
+               player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
+
+               guard let player = player else { return }
+
+               player.play()
+
+           } catch let error {
+               print(error.localizedDescription)
+           }
+    }
     func playMusic(bool: Bool){
         
     }
@@ -45,12 +67,12 @@ class MelodyViewController: UIViewController,UITableViewDelegate,UITableViewData
         let cell = tableView.cellForRow(at: indexPath)
         cell?.accessoryType = .checkmark
         alarmEditVC?.innerData?.soundName = musicList[indexPath.row]
-        playMusic(bool: true)
+        playSound(bool: true,soundName: alarmEditVC!.innerData!.soundName)
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         cell?.accessoryType = .none
-        playMusic(bool: false)
+        playSound(bool: false,soundName: alarmEditVC!.innerData!.soundName)
     }
 }
