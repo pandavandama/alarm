@@ -14,11 +14,13 @@ class UsersDefaultsModel{
     var usersDefaults = UserDefaults.standard
     
     func setAlarmClock(data: SpecificAlarm){
+        print(data)
         var json = ""
         if usersDefaults.string(forKey: "AlarmList") != nil{
             var alarmList = getAlarmAllAlarmClock()
             alarmList.append(data)
             alarmList[alarmList.count-1].index = alarmList.count-1
+            alarmList = alarmList.sorted(by: { Int($0.timestamp()!) > Int($1.timestamp()!) })
             UsersDefaultsModel.shared.updateNotificationList(alarmList: alarmList)
             let jsonData = try! JSONEncoder().encode(alarmList)
             json = String(data: jsonData, encoding: .utf8)!
@@ -31,6 +33,7 @@ class UsersDefaultsModel{
             json = String(data: jsonData, encoding: .utf8)!
         }
         usersDefaults.set(json, forKey: "AlarmList")
+        
     }
     
     func editSpecificAlarmClock(newElement: SpecificAlarm){
@@ -61,6 +64,7 @@ class UsersDefaultsModel{
     func removeFromAlarmList(index: Int){
         var json = ""
         var alarmList = getAlarmAllAlarmClock()
+        print(alarmList)
         alarmList.remove(at: index)
         let jsonData = try! JSONEncoder().encode(alarmList)
         json = String(data: jsonData, encoding: .utf8)!

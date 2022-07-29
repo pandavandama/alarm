@@ -9,29 +9,36 @@ import UIKit
 
 class AlarmRepeatingViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
-    var alarmEditVC: AlarmEditViewController?
-    
-    
-    
-   
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        7
-    }
-    var arrayCheckedInt: [Int] = []
+
+    var dayListFullNames: [String]?
+    var dayListShortNames: [String]?
+    var setRepeating: (([Int]?)->())?
+    var repeating: [Int]?
     
     override func viewWillLayoutSubviews() {
         super.updateViewConstraints()
         self.tableViewHeight?.constant = tableView.contentSize.height-1
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.layer.cornerRadius = 10.0
+        tableView.tableHeaderView = UIView()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        dayListFullNames!.count
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! UITableViewCell
-        cell.textLabel?.text = alarmEditVC?.innerData?.dayListFullNames[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
+        cell.textLabel?.text = dayListFullNames![indexPath.row]
         cell.textLabel?.textColor = .white
-        for i in arrayCheckedInt{
+        for i in repeating!{
             if i == indexPath.row{
                 cell.accessoryType = .checkmark
             }
@@ -41,9 +48,9 @@ class AlarmRepeatingViewController: UIViewController,UITableViewDelegate,UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
-        arrayCheckedInt = arrayCheckedInt.uniqued()
+        repeating = repeating!.uniqued()
         var isChecked = false
-        for i in arrayCheckedInt{
+        for i in repeating!{
             if i == indexPath.row{
                 isChecked = true
                 break
@@ -53,38 +60,19 @@ class AlarmRepeatingViewController: UIViewController,UITableViewDelegate,UITable
         }
         if isChecked{
             cell!.accessoryType = .none
-            arrayCheckedInt.removeAll(where: {
+            repeating!.removeAll(where: {
                 $0 == indexPath.row
             })
         }else{
             cell!.accessoryType = .checkmark
-            arrayCheckedInt.append(indexPath.row)
+            repeating!.append(indexPath.row)
         }
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        arrayCheckedInt = arrayCheckedInt.sorted()
-        
-        var namedArray: [String] = []
-        for i in arrayCheckedInt{
-            namedArray.append(alarmEditVC!.innerData!.dayListShortNames[i])
-        }
-        alarmEditVC?.dayListShortNamesOutput = namedArray
-        alarmEditVC?.innerData?.repeating = arrayCheckedInt
-    }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.layer.cornerRadius = 10.0
-        
-        tableView.tableHeaderView = UIView()
-        
-        arrayCheckedInt = alarmEditVC!.innerData!.repeating!
-        arrayCheckedInt = arrayCheckedInt.uniqued()
+        repeating! = repeating!.sorted()
+        setRepeating?(repeating!)
     }
 }
+
 public extension Array where Element: Hashable {
     func uniqued() -> [Element] {
         var seen = Set<Element>()
