@@ -38,11 +38,11 @@
 
 import Foundation
 
-class TaskManager: ObservableObject {
+class TaskManager {
   static let shared = TaskManager()
   let taskPersistenceManager = TaskPersistenceManager()
 
-  @Published var tasks: [Task] = []
+  var tasks: [Task] = []
 
   init() {
     loadTasks()
@@ -62,17 +62,15 @@ class TaskManager: ObservableObject {
     self.tasks = taskPersistenceManager.loadTasks()
   }
 
-  func addNewTask(_ taskName: String, _ reminder: Reminder?) {
+  func addNewTask(_ taskName: String, _ reminder: Alarm?) {
     if let reminder = reminder {
-        print("save1")
       save(task: Task(name: taskName, reminderEnabled: true, reminder: reminder))
     } else {
-      save(task: Task(name: taskName, reminderEnabled: false, reminder: Reminder()))
+      save(task: Task(name: taskName, reminderEnabled: false, reminder: Alarm()))
     }
   }
 
   func remove(task: Task) {
-      print("REMOVING")
     tasks.removeAll {
       $0.id == task.id
     }
@@ -81,14 +79,6 @@ class TaskManager: ObservableObject {
     }
     if task.reminderEnabled {
       NotificationManager.shared.removeScheduledNotification(task: task)
-    }
-  }
-
-  func markTaskComplete(task: Task) {
-    if let row = tasks.firstIndex(where: { $0.id == task.id }) {
-      var updatedTask = task
-      updatedTask.completed = true
-      tasks[row] = updatedTask
     }
   }
 }

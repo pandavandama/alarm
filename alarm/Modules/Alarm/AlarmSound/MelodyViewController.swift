@@ -19,11 +19,7 @@ class MelodyViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableViewHeight?.constant = tableView.contentSize.height-1
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.layer.cornerRadius = 10.0
-        tableView.tableHeaderView = UIView()
+        tableViewInit()
     }
     
     override func viewWillLayoutSubviews() {
@@ -61,8 +57,15 @@ class MelodyViewController: UIViewController,UITableViewDelegate,UITableViewData
         cell?.accessoryType = .none
         playSound(bool: false,soundName: musicList[indexPath.row])
     }
-    
+    func tableViewInit(){
+        self.tableViewHeight?.constant = tableView.contentSize.height-1
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.layer.cornerRadius = 10.0
+        tableView.tableHeaderView = UIView()
+    }
 }
+
 extension MelodyViewController{
     func playSound(bool: Bool,soundName: String) {
         guard let url = Bundle.main.url(forResource: soundName, withExtension: "caf") else { return }

@@ -40,33 +40,34 @@
 import Foundation
 
 struct Task: Identifiable, Codable {
-  var id = UUID().uuidString
-  var name: String
-  var completed = false
-  var reminderEnabled = false
-  var reminder: Reminder
+    var id = UUID().uuidString
+    var name: String
+    var completed = false
+    var reminderEnabled = false
+    var reminder: Alarm
 }
 
-enum ReminderType: Int, CaseIterable, Identifiable, Codable {
-  case time
-  case calendar
-//  case location
-  var id: Int { self.rawValue }
-}
-
-struct Reminder: Codable {
-  var timeInterval: TimeInterval?
-  var date: DateComponents?
-//  var location: LocationReminder?
-  var reminderType: ReminderType = .time
-  var repeats = false
-    var soundName: String?
-    var description: String?
-
-}
-
-//struct LocationReminder: Codable {
-//  var latitude: Double
-//  var longitude: Double
-//  var radius: Double
+//enum ReminderType: Int, CaseIterable, Identifiable, Codable {
+//    case time
+//    case calendar
+//    var id: Int { self.rawValue }
 //}
+//
+//struct Reminder: Codable {
+//    var date: DateComponents?
+//    var repeats = false
+//    var soundName: String?
+//    var description: String?
+//}
+
+struct Alarm: Codable{
+    var dateComponents: DateComponents?
+    var date: Date?
+    var isEnabled: Bool?
+    var repeating: [Int]?
+    var name: String?
+    var soundName: String?
+    var index: Int?
+    var isNeedToRepeat: Bool?
+    var description: String?
+}

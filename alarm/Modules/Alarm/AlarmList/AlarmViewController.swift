@@ -9,12 +9,13 @@ import UIKit
 
 class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var alarmService = AlarmService.shared
     //Variables
     @IBOutlet weak var plusTabButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var editTabButton: UIBarButtonItem!
     
-    var dataList: [SpecificAlarm] = []
+    var dataList: [Alarm] = []
     var labelBigTitle: UILabel?
     
     //CycleVCMethods
@@ -54,16 +55,16 @@ class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDat
         var data = dataList[indexPath.row]
         if indexPath.section == 0{
             cell.isUserInteractionEnabled = false
-            let mockData = SpecificAlarm(date: Date.now, isEnabled: false,repeating: [],name: "Будильник(заглушка)",soundName: "1")
-            cell.timeLabel.text = dateFormatter.string(from: mockData.date)
-            cell.labelAlarm.text = "\(mockData.name), \(data.shortNameDayRender())"
-            cell.switchAlarm.isOn = mockData.isEnabled
+            let mockData = Alarm(date: Date.now, isEnabled: false,repeating: [],name: "Будильник(заглушка)",soundName: "1")
+            cell.timeLabel.text = dateFormatter.string(from: mockData.date!)
+            cell.labelAlarm.text = "\(mockData.name!), \(alarmService.shortNameDayRender(repeating: mockData.repeating!))"
+            cell.switchAlarm.isOn = mockData.isEnabled!
             cell.selectionStyle = .none
         }else{
             cell.isUserInteractionEnabled = true
-            cell.timeLabel.text = dateFormatter.string(from: data.date)
-            cell.labelAlarm.text = "\(data.name), \(data.shortNameDayRender())"
-            cell.switchAlarm.isOn = data.isEnabled
+            cell.timeLabel.text = dateFormatter.string(from: data.date!)
+            cell.labelAlarm.text = "\(data.name!), \(alarmService.shortNameDayRender(repeating: data.repeating!))"
+            cell.switchAlarm.isOn = data.isEnabled!
             cell.changeEnabling = { bool in
                 data.isEnabled = bool!
                 self.editAlarm(alarm: data)
@@ -123,7 +124,7 @@ class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return true
     }
     
-    //ScrollViewMethos
+    //ScrollViewMethods
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         labelBigTitle?.font = .boldSystemFont(ofSize: 30+(-scrollView.contentOffset.y/50))
         if scrollView.contentOffset.y > 40 && labelBigTitle?.textColor != .clear{
@@ -138,14 +139,14 @@ class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     //Other methods
-    func addAlarm(alarm: SpecificAlarm){
+    func addAlarm(alarm: Alarm){
         print(alarm)
         UsersDefaultsModel().setAlarmClock(data: alarm)
         self.dataInit()
         self.tableView.reloadData()
     }
     
-    func editAlarm(alarm: SpecificAlarm){
+    func editAlarm(alarm: Alarm){
         UsersDefaultsModel().editSpecificAlarmClock(newElement: alarm)
         print("KAVABANGA")
         self.dataInit()
@@ -163,29 +164,29 @@ class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func openAlarmDetails(indexPath: IndexPath){
-        guard let myVC = self.storyboard?.instantiateViewController(withIdentifier: "AlarmEditPopup") as? AlarmEditViewController else { return }
-        myVC.deleteCellByIndex = { index in
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "AlarmEditPopup") as? AlarmEditViewController else { return }
+        vc.deleteCellByIndex = { index in
             self.deleteCellFromTable(index: index)
         }
-        myVC.editAlarm = { alarm in
+        vc.editAlarm = { alarm in
             self.editAlarm(alarm: alarm!)
         }
-        myVC.setData(data: dataList[indexPath.row])
-        myVC.isNew = false
-        let navController = UINavigationController(rootViewController: myVC)
+        vc.setData(data: dataList[indexPath.row])
+        vc.isNew = false
+        let navController = UINavigationController(rootViewController: vc)
         self.navigationController?.present(navController, animated: true, completion: nil)
     }
     
     func openAlarmDetails(){
-        guard let myVC = self.storyboard?.instantiateViewController(withIdentifier: "AlarmEditPopup") as? AlarmEditViewController else { return }
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "AlarmEditPopup") as? AlarmEditViewController else { return }
         
-        myVC.addAlarm = { alarm in
+        vc.addAlarm = { alarm in
             self.addAlarm(alarm: alarm!)
         }
-        myVC.setData(data: makeDefaultAlarm())
-        myVC.isNew = true
-        let navController = UINavigationController(rootViewController: myVC)
-        myVC.navigationItem.title = "Добавить"
+        vc.setData(data: makeDefaultAlarm())
+        vc.isNew = true
+        let navController = UINavigationController(rootViewController: vc)
+        vc.navigationItem.title = "Добавить"
         self.navigationController?.present(navController, animated: true, completion: nil)
     }
     
@@ -201,10 +202,8 @@ class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return header
     }
     
-    func makeDefaultAlarm() -> SpecificAlarm{
-        var dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
-        return SpecificAlarm(date: Date.now, isEnabled: true, repeating: [], name: "Будильник", soundName: "a1",isNeedToRepeat: false)
+    func makeDefaultAlarm() -> Alarm{
+        return Alarm(date: Date.now, isEnabled: true, repeating: [], name: "Будильник", soundName: "a1",isNeedToRepeat: false)
     }
     
     func addAlarm(){

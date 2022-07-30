@@ -16,12 +16,12 @@
 		CB5D4362288F14E900276A4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB5D4360288F14E900276A4F /* LaunchScreen.storyboard */; };
 		CB5D436F288F178600276A4F /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D436D288F178600276A4F /* AlarmTableViewCell.swift */; };
 		CB5D4370288F178600276A4F /* AlarmTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB5D436E288F178600276A4F /* AlarmTableViewCell.xib */; };
-		CB5D4372288F204500276A4F /* AlarmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D4371288F204500276A4F /* AlarmModel.swift */; };
 		CB8C9AE72892F56300EDE6C6 /* a2.caf in Resources */ = {isa = PBXBuildFile; fileRef = CB8C9AE22892F56300EDE6C6 /* a2.caf */; };
 		CB8C9AE82892F56300EDE6C6 /* a5.caf in Resources */ = {isa = PBXBuildFile; fileRef = CB8C9AE32892F56300EDE6C6 /* a5.caf */; };
 		CB8C9AE92892F56300EDE6C6 /* a4.caf in Resources */ = {isa = PBXBuildFile; fileRef = CB8C9AE42892F56300EDE6C6 /* a4.caf */; };
 		CB8C9AEA2892F56300EDE6C6 /* soundtrack.caf in Resources */ = {isa = PBXBuildFile; fileRef = CB8C9AE52892F56300EDE6C6 /* soundtrack.caf */; };
 		CB8C9AEB2892F56300EDE6C6 /* a3.caf in Resources */ = {isa = PBXBuildFile; fileRef = CB8C9AE62892F56300EDE6C6 /* a3.caf */; };
+		CB8C9AF628949C2F00EDE6C6 /* AlarmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8C9AF528949C2F00EDE6C6 /* AlarmService.swift */; };
 		CBB727252890383700621ED0 /* WorldClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB727242890383700621ED0 /* WorldClockViewController.swift */; };
 		CBB727272890389400621ED0 /* WorldClockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB727262890389400621ED0 /* WorldClockModel.swift */; };
 		CBB7272A2890470D00621ED0 /* WorldClockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB727282890470D00621ED0 /* WorldClockTableViewCell.swift */; };
@@ -55,12 +55,12 @@
 		CB5D4363288F14E900276A4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB5D436D288F178600276A4F /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
 		CB5D436E288F178600276A4F /* AlarmTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmTableViewCell.xib; sourceTree = "<group>"; };
-		CB5D4371288F204500276A4F /* AlarmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmModel.swift; sourceTree = "<group>"; };
 		CB8C9AE22892F56300EDE6C6 /* a2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = a2.caf; sourceTree = "<group>"; };
 		CB8C9AE32892F56300EDE6C6 /* a5.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = a5.caf; sourceTree = "<group>"; };
 		CB8C9AE42892F56300EDE6C6 /* a4.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = a4.caf; sourceTree = "<group>"; };
 		CB8C9AE52892F56300EDE6C6 /* soundtrack.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = soundtrack.caf; sourceTree = "<group>"; };
 		CB8C9AE62892F56300EDE6C6 /* a3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = a3.caf; sourceTree = "<group>"; };
+		CB8C9AF528949C2F00EDE6C6 /* AlarmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmService.swift; sourceTree = "<group>"; };
 		CBB727242890383700621ED0 /* WorldClockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClockViewController.swift; sourceTree = "<group>"; };
 		CBB727262890389400621ED0 /* WorldClockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClockModel.swift; sourceTree = "<group>"; };
 		CBB727282890470D00621ED0 /* WorldClockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClockTableViewCell.swift; sourceTree = "<group>"; };
@@ -118,6 +118,7 @@
 				CB8C9AE42892F56300EDE6C6 /* a4.caf */,
 				CB8C9AE32892F56300EDE6C6 /* a5.caf */,
 				CB8C9AE52892F56300EDE6C6 /* soundtrack.caf */,
+				CBD0F25A2891B952005960D2 /* Managers */,
 				CB5D436A288F15C900276A4F /* Modules */,
 				CB5D4369288F15B100276A4F /* Application */,
 				CB5D435E288F14E900276A4F /* Assets.xcassets */,
@@ -140,7 +141,8 @@
 		CB5D436A288F15C900276A4F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				CBD0F25A2891B952005960D2 /* Managers */,
+				CB5D4358288F14E800276A4F /* Main.storyboard */,
+				CB8C9AED289499E600EDE6C6 /* Alarm */,
 				CBB727232890381100621ED0 /* WorldClock */,
 				CB5D436B288F15DB00276A4F /* Main */,
 				CBD0F2642891BB22005960D2 /* Taks.swift */,
@@ -151,16 +153,7 @@
 		CB5D436B288F15DB00276A4F /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				CBB7273328906AE500621ED0 /* AlarmDetailsSettingsCell */,
-				CB5D436C288F175A00276A4F /* AlarmCell */,
-				CB5D4356288F14E800276A4F /* AlarmViewController.swift */,
-				CB5D4358288F14E800276A4F /* Main.storyboard */,
-				CB5D4371288F204500276A4F /* AlarmModel.swift */,
-				CBB7272C289066AA00621ED0 /* AlarmEditViewController.swift */,
 				CBB7273D28907A4C00621ED0 /* UsersDefaultsModel.swift */,
-				CBD0F25628915E34005960D2 /* AlarmNameViewController.swift */,
-				CBD0F25828918E7E005960D2 /* AlarmRepeatingViewController.swift */,
-				CBC4AC682892BE1600784294 /* MelodyViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -172,6 +165,61 @@
 				CB5D436E288F178600276A4F /* AlarmTableViewCell.xib */,
 			);
 			path = AlarmCell;
+			sourceTree = "<group>";
+		};
+		CB8C9AED289499E600EDE6C6 /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+				CB8C9AF228949A5400EDE6C6 /* AlarmRepeating */,
+				CB8C9AF128949A4900EDE6C6 /* AlarmSound */,
+				CB8C9AF028949A3800EDE6C6 /* AlarmTitle */,
+				CB8C9AEF28949A2200EDE6C6 /* AlarmEdit */,
+				CB8C9AEE28949A1900EDE6C6 /* AlarmList */,
+				CB8C9AF528949C2F00EDE6C6 /* AlarmService.swift */,
+			);
+			path = Alarm;
+			sourceTree = "<group>";
+		};
+		CB8C9AEE28949A1900EDE6C6 /* AlarmList */ = {
+			isa = PBXGroup;
+			children = (
+				CB5D4356288F14E800276A4F /* AlarmViewController.swift */,
+				CB5D436C288F175A00276A4F /* AlarmCell */,
+			);
+			path = AlarmList;
+			sourceTree = "<group>";
+		};
+		CB8C9AEF28949A2200EDE6C6 /* AlarmEdit */ = {
+			isa = PBXGroup;
+			children = (
+				CBB7272C289066AA00621ED0 /* AlarmEditViewController.swift */,
+				CBB7273328906AE500621ED0 /* AlarmDetailsSettingsCell */,
+			);
+			path = AlarmEdit;
+			sourceTree = "<group>";
+		};
+		CB8C9AF028949A3800EDE6C6 /* AlarmTitle */ = {
+			isa = PBXGroup;
+			children = (
+				CBD0F25628915E34005960D2 /* AlarmNameViewController.swift */,
+			);
+			path = AlarmTitle;
+			sourceTree = "<group>";
+		};
+		CB8C9AF128949A4900EDE6C6 /* AlarmSound */ = {
+			isa = PBXGroup;
+			children = (
+				CBC4AC682892BE1600784294 /* MelodyViewController.swift */,
+			);
+			path = AlarmSound;
+			sourceTree = "<group>";
+		};
+		CB8C9AF228949A5400EDE6C6 /* AlarmRepeating */ = {
+			isa = PBXGroup;
+			children = (
+				CBD0F25828918E7E005960D2 /* AlarmRepeatingViewController.swift */,
+			);
+			path = AlarmRepeating;
 			sourceTree = "<group>";
 		};
 		CBB727232890381100621ED0 /* WorldClock */ = {
@@ -288,6 +336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB8C9AF628949C2F00EDE6C6 /* AlarmService.swift in Sources */,
 				CB5D436F288F178600276A4F /* AlarmTableViewCell.swift in Sources */,
 				CBD0F25F2891B99A005960D2 /* NotificationManager.swift in Sources */,
 				CBB727252890383700621ED0 /* WorldClockViewController.swift in Sources */,
@@ -306,7 +355,6 @@
 				CBD0F25D2891B986005960D2 /* TaskManager.swift in Sources */,
 				CBB7272A2890470D00621ED0 /* WorldClockTableViewCell.swift in Sources */,
 				CB5D435D288F14E800276A4F /* alarm.xcdatamodeld in Sources */,
-				CB5D4372288F204500276A4F /* AlarmModel.swift in Sources */,
 				CBD0F25928918E7E005960D2 /* AlarmRepeatingViewController.swift in Sources */,
 				CBB7273E28907A4C00621ED0 /* UsersDefaultsModel.swift in Sources */,
 			);
